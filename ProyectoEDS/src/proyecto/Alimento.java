@@ -10,7 +10,7 @@ protected double proteinas;
 protected double sal;
 protected double calorias;
 	
-Alimento (String nombre, double grasas, double grasasSat, double hidratosCarbono, double azucar, double proteinas, double sal, double calorías){
+Alimento (String nombre, double grasas, double grasasSat, double hidratosCarbono, double azucar, double proteinas, double sal, double calorias){
 	this.nombre = nombre;
 	this.grasas = grasas;
 	this.grasasSat = grasasSat;
