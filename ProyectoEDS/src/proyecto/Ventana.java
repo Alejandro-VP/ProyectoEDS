@@ -22,8 +22,8 @@ public class Ventana {
 	private JTextField txtCantAlim1;
 	// Creamos un ArrayList donde iremos añadiendo los alimentos
 	private ArrayList <Alimento> alimentosAL = new ArrayList <> ();
-	private JTextField txtCantAlim2;
 	
+	private JTextField txtCantAlim2;
 	private JTextField txtCantAlim3;
 	private JTextField txtGrasas0;
 	private JTextField txtCantAlim4;
@@ -96,17 +96,20 @@ public class Ventana {
 	 */
 	private void initialize() {
 		// Creamos los alimentos que introduciremos en el ArrayList
-		// Orden: Nombre, Grasas, Grasas Saturadas, Hidratos de carbono, Azucar, Proteínas, Sal, Calorías
+		// Orden: Nombre, Grasas, Grasas Saturadas, Hidratos de carbono, Azucar, Proteínas, Sal, kiloCalorías
 		Alimento pera = new Alimento ("Pera", 20, 10, 30, 15, 5, 2, 2000);
-		Alimento manzana = new Alimento ("Manzana",58,15,23,15,96,200,455);
-		Alimento macarrones = new Alimento ("Macarrones",4,2,8,7,58,4,500);
-		
+		Alimento manzana = new Alimento ("Manzana", 58, 15, 23, 15, 96, 1, 455);
+		Alimento macarrones = new Alimento ("Macarrones", 4, 2, 8, 7, 58,4, 500);
+		Alimento pepino = new Alimento ("Pepino", 10, 2, 9, 3, 1, 0.5, 2);
+		Alimento patatasBolsa = new Alimento("Patatas fritas estilo Tradicional", 36, 3, 50, 4, 7, 1, 555);
 		
 		
 		// Llenamos el ArrayList con los Alimentos
 		alimentosAL.add(pera);
 		alimentosAL.add(manzana);
 		alimentosAL.add(macarrones);
+		alimentosAL.add(pepino);
+		alimentosAL.add(patatasBolsa);
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 950, 450);
@@ -209,14 +212,15 @@ public class Ventana {
 		frame.getContentPane().add(txtGrasas0);
 		txtGrasas0.setColumns(10);
 		
+		JLabel lblAlimento4 = new JLabel((String) null);
+		lblAlimento4.setBounds(55, 232, 73, 17);
+		frame.getContentPane().add(lblAlimento4);
+		lblAlimento4.setText(alimentosAL.get(3).getNombre());
+		
 		txtCantAlim4 = new JTextField();
 		txtCantAlim4.setColumns(10);
 		txtCantAlim4.setBounds(158, 230, 114, 21);
 		frame.getContentPane().add(txtCantAlim4);
-		
-		JLabel lblAlimento4 = new JLabel((String) null);
-		lblAlimento4.setBounds(55, 232, 73, 17);
-		frame.getContentPane().add(lblAlimento4);
 		
 		JCheckBox chckAlim4 = new JCheckBox("New check box");
 		chckAlim4.setBounds(23, 228, 18, 21);
@@ -225,6 +229,7 @@ public class Ventana {
 		JLabel lblAlimento5 = new JLabel((String) null);
 		lblAlimento5.setBounds(55, 278, 73, 17);
 		frame.getContentPane().add(lblAlimento5);
+		lblAlimento5.setText(alimentosAL.get(4).getNombre());
 		
 		txtCantAlim5 = new JTextField();
 		txtCantAlim5.setColumns(10);
@@ -500,6 +505,8 @@ public class Ventana {
 		lblgr5 = new JLabel("g");
 		lblgr5.setBounds(274, 278, 18, 17);
 		frame.getContentPane().add(lblgr5);
+		
+		
 		
 	}
 }
