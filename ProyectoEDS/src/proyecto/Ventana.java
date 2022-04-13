@@ -19,10 +19,10 @@ import javax.swing.SwingConstants;
 public class Ventana {
 
 	private JFrame frame;
-	private JTextField txtCantAlim1;
+	
 	// Creamos un ArrayList donde iremos añadiendo los alimentos
 	private ArrayList <Alimento> alimentosAL = new ArrayList <> ();
-	
+	private JTextField txtCantAlim1;
 	private JTextField txtCantAlim2;
 	private JTextField txtCantAlim3;
 	private JTextField txtGrasas0;
@@ -67,6 +67,7 @@ public class Ventana {
 	private JLabel lblgr3;
 	private JLabel lblgr4;
 	private JLabel lblgr5;
+	private JLabel lblErrorAzucar;
 
 	/**
 	 * Launch the application.
@@ -97,24 +98,47 @@ public class Ventana {
 	private void initialize() {
 		// Creamos los alimentos que introduciremos en el ArrayList
 		// Orden: Nombre, Grasas, Grasas Saturadas, Hidratos de carbono, Azucar, Proteínas, Sal, kiloCalorías
-		Alimento pera = new Alimento ("Pera", 20, 10, 30, 15, 5, 2, 2000);
-		Alimento manzana = new Alimento ("Manzana", 58, 15, 23, 15, 96, 1, 455);
-		Alimento macarrones = new Alimento ("Macarrones", 4, 2, 8, 7, 58,4, 500);
-		Alimento pepino = new Alimento ("Pepino", 10, 2, 9, 3, 1, 0.5, 2);
-		Alimento patatasBolsa = new Alimento("Patatas fritas estilo Tradicional", 36, 3, 50, 4, 7, 1, 555);
+		Alimento pera = new Alimento ("Pera", 0.1, 0, 10.6, 15, 0.4, 2, 45);
+		Alimento chocolate = new Alimento ("Chocolate Negro 85%", 49, 30, 20, 14, 12, 0.03, 597);
+		Alimento macarrones = new Alimento ("Macarrones", 1.5, 0.4, 71, 3.5, 12.5,0.01, 354);
+		Alimento pan = new Alimento ("Barra Pan", 1.3, 0.2, 54, 2.7, 8.9, 1.6, 268);
+		Alimento patatasBolsa = new Alimento("Patatas fritas bolsa", 36, 3, 50, 4, 7, 1, 555);
 		
 		
 		// Llenamos el ArrayList con los Alimentos
 		alimentosAL.add(pera);
-		alimentosAL.add(manzana);
+		alimentosAL.add(chocolate);
 		alimentosAL.add(macarrones);
-		alimentosAL.add(pepino);
+		alimentosAL.add(pan);
 		alimentosAL.add(patatasBolsa);
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 950, 450);
+		frame.setBounds(100, 100, 1300, 660);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+
+		JLabel lblErrorSaturadas = new JLabel("");
+		lblErrorSaturadas.setBounds(466, 377, 360, 17);
+		frame.getContentPane().add(lblErrorSaturadas);
+		
+		lblErrorAzucar = new JLabel("");
+		lblErrorAzucar.setBounds(466, 406, 360, 17);
+		frame.getContentPane().add(lblErrorAzucar);
+		
+		
+		
+		for (int i = 0; i < alimentosAL.size(); i++) {
+			if (alimentosAL.get(i).getGrasasSat() > alimentosAL.get(i).getGrasas()) {
+				lblErrorSaturadas.setText("Las grasas saturadas no pueden ser mayores que las totales");
+				}
+			if (alimentosAL.get(i).getAzucar() > alimentosAL.get(i).getHidratosCarbono()) {
+				lblErrorAzucar.setText("Los azúcares no pueden superar los hidratos");
+			}
+			
+		}
+		
+		
 		
 		JLabel lblAlimentos = new JLabel("Alimentos");
 		lblAlimentos.setBounds(55, 62, 73, 17);
@@ -172,43 +196,43 @@ public class Ventana {
 		txtCantAlim3.setColumns(10);
 		
 		JLabel lblGrasas = new JLabel("Grasas");
-		lblGrasas.setBounds(357, 62, 51, 17);
+		lblGrasas.setBounds(328, 73, 40, 17);
 		frame.getContentPane().add(lblGrasas);
 		
 		JLabel lblGsaturadas = new JLabel("G.Saturadas");
-		lblGsaturadas.setBounds(420, 62, 78, 17);
+		lblGsaturadas.setBounds(460, 73, 78, 17);
 		frame.getContentPane().add(lblGsaturadas);
 		
 		JLabel lblHidratosCarbono = new JLabel("H. Carbono");
-		lblHidratosCarbono.setBounds(510, 62, 73, 17);
+		lblHidratosCarbono.setBounds(600, 73, 73, 17);
 		frame.getContentPane().add(lblHidratosCarbono);
 		
 		JLabel lblAzcar = new JLabel("Azúcar");
-		lblAzcar.setBounds(599, 62, 51, 17);
+		lblAzcar.setBounds(752, 73, 40, 17);
 		frame.getContentPane().add(lblAzcar);
 		
 		JLabel lblProtenas = new JLabel("Proteínas");
-		lblProtenas.setBounds(672, 62, 60, 17);
+		lblProtenas.setBounds(880, 73, 60, 17);
 		frame.getContentPane().add(lblProtenas);
 		
 		JLabel lblSal = new JLabel("Sal");
-		lblSal.setBounds(773, 62, 40, 17);
+		lblSal.setBounds(1041, 73, 18, 17);
 		frame.getContentPane().add(lblSal);
 		
 		JLabel lblCaloras = new JLabel("Calorías");
-		lblCaloras.setBounds(837, 62, 51, 17);
+		lblCaloras.setBounds(1160, 73, 51, 17);
 		frame.getContentPane().add(lblCaloras);
 		
 		JLabel lblCantidadesIngeridas = new JLabel("Cantidades ingeridas");
 		lblCantidadesIngeridas.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCantidadesIngeridas.setForeground(new Color(30, 144, 255));
-		lblCantidadesIngeridas.setBounds(525, 25, 147, 17);
+		lblCantidadesIngeridas.setBounds(572, 22, 147, 17);
 		frame.getContentPane().add(lblCantidadesIngeridas);
 		
 		txtGrasas0 = new JTextField();
 		txtGrasas0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas0.setEditable(false);
-		txtGrasas0.setBounds(348, 101, 60, 21);
+		txtGrasas0.setBounds(320, 112, 60, 21);
 		frame.getContentPane().add(txtGrasas0);
 		txtGrasas0.setColumns(10);
 		
@@ -244,238 +268,238 @@ public class Ventana {
 		txtGSat0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat0.setEditable(false);
 		txtGSat0.setColumns(10);
-		txtGSat0.setBounds(430, 101, 60, 21);
+		txtGSat0.setBounds(460, 112, 60, 21);
 		frame.getContentPane().add(txtGSat0);
 		
 		txtHCarb0 = new JTextField();
 		txtHCarb0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb0.setEditable(false);
 		txtHCarb0.setColumns(10);
-		txtHCarb0.setBounds(510, 101, 60, 21);
+		txtHCarb0.setBounds(600, 112, 60, 21);
 		frame.getContentPane().add(txtHCarb0);
 		
 		txtAzucar0 = new JTextField();
 		txtAzucar0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar0.setEditable(false);
 		txtAzucar0.setColumns(10);
-		txtAzucar0.setBounds(590, 101, 60, 21);
+		txtAzucar0.setBounds(740, 112, 60, 21);
 		frame.getContentPane().add(txtAzucar0);
 		
 		txtProt0 = new JTextField();
 		txtProt0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt0.setEditable(false);
 		txtProt0.setColumns(10);
-		txtProt0.setBounds(672, 101, 60, 21);
+		txtProt0.setBounds(880, 112, 60, 21);
 		frame.getContentPane().add(txtProt0);
 		
 		txtSal0 = new JTextField();
 		txtSal0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal0.setEditable(false);
 		txtSal0.setColumns(10);
-		txtSal0.setBounds(755, 101, 60, 21);
+		txtSal0.setBounds(1020, 112, 60, 21);
 		frame.getContentPane().add(txtSal0);
 		
 		txtCal0 = new JTextField();
 		txtCal0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal0.setEditable(false);
 		txtCal0.setColumns(10);
-		txtCal0.setBounds(837, 101, 60, 21);
+		txtCal0.setBounds(1160, 112, 60, 21);
 		frame.getContentPane().add(txtCal0);
 		
 		txtGrasas1 = new JTextField();
 		txtGrasas1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas1.setEditable(false);
 		txtGrasas1.setColumns(10);
-		txtGrasas1.setBounds(348, 143, 60, 21);
+		txtGrasas1.setBounds(320, 154, 60, 21);
 		frame.getContentPane().add(txtGrasas1);
 		
 		txtGrasas2 = new JTextField();
 		txtGrasas2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas2.setEditable(false);
 		txtGrasas2.setColumns(10);
-		txtGrasas2.setBounds(348, 186, 60, 21);
+		txtGrasas2.setBounds(320, 197, 60, 21);
 		frame.getContentPane().add(txtGrasas2);
 		
 		txtGrasas3 = new JTextField();
 		txtGrasas3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas3.setEditable(false);
 		txtGrasas3.setColumns(10);
-		txtGrasas3.setBounds(348, 230, 60, 21);
+		txtGrasas3.setBounds(320, 241, 60, 21);
 		frame.getContentPane().add(txtGrasas3);
 		
 		txtGrasas4 = new JTextField();
 		txtGrasas4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas4.setEditable(false);
 		txtGrasas4.setColumns(10);
-		txtGrasas4.setBounds(348, 274, 60, 21);
+		txtGrasas4.setBounds(320, 285, 60, 21);
 		frame.getContentPane().add(txtGrasas4);
 		
 		txtGSat1 = new JTextField();
 		txtGSat1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat1.setEditable(false);
 		txtGSat1.setColumns(10);
-		txtGSat1.setBounds(430, 143, 60, 21);
+		txtGSat1.setBounds(460, 154, 60, 21);
 		frame.getContentPane().add(txtGSat1);
 		
 		txtGSat2 = new JTextField();
 		txtGSat2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat2.setEditable(false);
 		txtGSat2.setColumns(10);
-		txtGSat2.setBounds(430, 186, 60, 21);
+		txtGSat2.setBounds(460, 197, 60, 21);
 		frame.getContentPane().add(txtGSat2);
 		
 		txtGSat3 = new JTextField();
 		txtGSat3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat3.setEditable(false);
 		txtGSat3.setColumns(10);
-		txtGSat3.setBounds(430, 230, 60, 21);
+		txtGSat3.setBounds(460, 241, 60, 21);
 		frame.getContentPane().add(txtGSat3);
 		
 		txtGSat4 = new JTextField();
 		txtGSat4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat4.setEditable(false);
 		txtGSat4.setColumns(10);
-		txtGSat4.setBounds(430, 274, 60, 21);
+		txtGSat4.setBounds(460, 285, 60, 21);
 		frame.getContentPane().add(txtGSat4);
 		
 		txtHCarb1 = new JTextField();
 		txtHCarb1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb1.setEditable(false);
 		txtHCarb1.setColumns(10);
-		txtHCarb1.setBounds(510, 143, 60, 21);
+		txtHCarb1.setBounds(600, 154, 60, 21);
 		frame.getContentPane().add(txtHCarb1);
 		
 		txtHCarb2 = new JTextField();
 		txtHCarb2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb2.setEditable(false);
 		txtHCarb2.setColumns(10);
-		txtHCarb2.setBounds(510, 186, 60, 21);
+		txtHCarb2.setBounds(600, 197, 60, 21);
 		frame.getContentPane().add(txtHCarb2);
 		
 		txtHCarb3 = new JTextField();
 		txtHCarb3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb3.setEditable(false);
 		txtHCarb3.setColumns(10);
-		txtHCarb3.setBounds(510, 230, 60, 21);
+		txtHCarb3.setBounds(600, 241, 60, 21);
 		frame.getContentPane().add(txtHCarb3);
 		
 		txtHCarb4 = new JTextField();
 		txtHCarb4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb4.setEditable(false);
 		txtHCarb4.setColumns(10);
-		txtHCarb4.setBounds(510, 274, 60, 21);
+		txtHCarb4.setBounds(600, 285, 60, 21);
 		frame.getContentPane().add(txtHCarb4);
 		
 		txtAzucar1 = new JTextField();
 		txtAzucar1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar1.setEditable(false);
 		txtAzucar1.setColumns(10);
-		txtAzucar1.setBounds(590, 143, 60, 21);
+		txtAzucar1.setBounds(740, 154, 60, 21);
 		frame.getContentPane().add(txtAzucar1);
 		
 		txtAzucar2 = new JTextField();
 		txtAzucar2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar2.setEditable(false);
 		txtAzucar2.setColumns(10);
-		txtAzucar2.setBounds(590, 186, 60, 21);
+		txtAzucar2.setBounds(740, 197, 60, 21);
 		frame.getContentPane().add(txtAzucar2);
 		
 		txtAzucar3 = new JTextField();
 		txtAzucar3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar3.setEditable(false);
 		txtAzucar3.setColumns(10);
-		txtAzucar3.setBounds(590, 230, 60, 21);
+		txtAzucar3.setBounds(740, 241, 60, 21);
 		frame.getContentPane().add(txtAzucar3);
 		
 		txtAzucar4 = new JTextField();
 		txtAzucar4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar4.setEditable(false);
 		txtAzucar4.setColumns(10);
-		txtAzucar4.setBounds(590, 274, 60, 21);
+		txtAzucar4.setBounds(740, 285, 60, 21);
 		frame.getContentPane().add(txtAzucar4);
 		
 		txtProt1 = new JTextField();
 		txtProt1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt1.setEditable(false);
 		txtProt1.setColumns(10);
-		txtProt1.setBounds(672, 143, 60, 21);
+		txtProt1.setBounds(880, 154, 60, 21);
 		frame.getContentPane().add(txtProt1);
 		
 		txtProt2 = new JTextField();
 		txtProt2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt2.setEditable(false);
 		txtProt2.setColumns(10);
-		txtProt2.setBounds(672, 186, 60, 21);
+		txtProt2.setBounds(880, 197, 60, 21);
 		frame.getContentPane().add(txtProt2);
 		
 		txtProt3 = new JTextField();
 		txtProt3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt3.setEditable(false);
 		txtProt3.setColumns(10);
-		txtProt3.setBounds(672, 230, 60, 21);
+		txtProt3.setBounds(880, 241, 60, 21);
 		frame.getContentPane().add(txtProt3);
 		
 		txtProt4 = new JTextField();
 		txtProt4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt4.setEditable(false);
 		txtProt4.setColumns(10);
-		txtProt4.setBounds(672, 274, 60, 21);
+		txtProt4.setBounds(880, 285, 60, 21);
 		frame.getContentPane().add(txtProt4);
 		
 		txtSal1 = new JTextField();
 		txtSal1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal1.setEditable(false);
 		txtSal1.setColumns(10);
-		txtSal1.setBounds(753, 143, 60, 21);
+		txtSal1.setBounds(1020, 154, 60, 21);
 		frame.getContentPane().add(txtSal1);
 		
 		txtSal2 = new JTextField();
 		txtSal2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal2.setEditable(false);
 		txtSal2.setColumns(10);
-		txtSal2.setBounds(753, 186, 60, 21);
+		txtSal2.setBounds(1020, 197, 60, 21);
 		frame.getContentPane().add(txtSal2);
 		
 		txtSal3 = new JTextField();
 		txtSal3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal3.setEditable(false);
 		txtSal3.setColumns(10);
-		txtSal3.setBounds(753, 230, 60, 21);
+		txtSal3.setBounds(1020, 241, 60, 21);
 		frame.getContentPane().add(txtSal3);
 		
 		txtSal4 = new JTextField();
 		txtSal4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal4.setEditable(false);
 		txtSal4.setColumns(10);
-		txtSal4.setBounds(753, 274, 60, 21);
+		txtSal4.setBounds(1020, 285, 60, 21);
 		frame.getContentPane().add(txtSal4);
 		
 		txtCal1 = new JTextField();
 		txtCal1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal1.setEditable(false);
 		txtCal1.setColumns(10);
-		txtCal1.setBounds(837, 143, 60, 21);
+		txtCal1.setBounds(1160, 154, 60, 21);
 		frame.getContentPane().add(txtCal1);
 		
 		txtCal2 = new JTextField();
 		txtCal2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal2.setEditable(false);
 		txtCal2.setColumns(10);
-		txtCal2.setBounds(837, 186, 60, 21);
+		txtCal2.setBounds(1160, 197, 60, 21);
 		frame.getContentPane().add(txtCal2);
 		
 		txtCal3 = new JTextField();
 		txtCal3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal3.setEditable(false);
 		txtCal3.setColumns(10);
-		txtCal3.setBounds(837, 230, 60, 21);
+		txtCal3.setBounds(1160, 241, 60, 21);
 		frame.getContentPane().add(txtCal3);
 		
 		txtCal4 = new JTextField();
 		txtCal4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal4.setEditable(false);
 		txtCal4.setColumns(10);
-		txtCal4.setBounds(837, 274, 60, 21);
+		txtCal4.setBounds(1160, 285, 60, 21);
 		frame.getContentPane().add(txtCal4);
 		
 		JButton btnValidarDieta = new JButton("Validar dieta");
@@ -483,7 +507,7 @@ public class Ventana {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnValidarDieta.setBounds(420, 353, 114, 27);
+		btnValidarDieta.setBounds(589, 459, 114, 27);
 		frame.getContentPane().add(btnValidarDieta);
 		
 		lblgr1 = new JLabel("g");
@@ -505,6 +529,11 @@ public class Ventana {
 		lblgr5 = new JLabel("g");
 		lblgr5.setBounds(274, 278, 18, 17);
 		frame.getContentPane().add(lblgr5);
+		
+		
+		
+		
+		
 		
 		
 		
