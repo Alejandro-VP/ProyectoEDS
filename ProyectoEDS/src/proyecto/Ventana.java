@@ -18,35 +18,17 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Ventana {
 
+public class Ventana {
 	
 	/**
-	 * Metodos calcular grasas
+	 * Creamos un ArrayList donde guardaremos las cajas de texto 
 	 */
+	private ArrayList <JTextField> cajasTexto=new ArrayList<>();
+	private ArrayList < ArrayList <JTextField>> cajasResultados= new ArrayList<>();
 	
-	
-	
-	/*
-	private void calcularGrasas(Alimento alimento)
-	{		
-		
-	
-		for (int i=0; i<5; i++)
-		{
-			if (i==0)
-			{
-				String textoCantidad=txtCantAlim1.getText();
-				double numeroCantidad=Double.valueOf(textoCantidad);
-				return numeroCantidad*alimento.getGrasas();
-			}
-			else if(i==1)
-			{
 
-			}
-		}
-	}
-*/
+
 	
 	
 	
@@ -54,9 +36,16 @@ public class Ventana {
 	private JFrame frame;
 	
 	/**
-	 *  Creamos un ArrayList donde iremos añadiendo los alimentos
+	 *  Creamos un ArrayList donde iremos anadiremos los alimentos
 	 */
+	
 	private ArrayList <Alimento> alimentosAL = new ArrayList <> ();
+	
+	
+	
+
+	
+	
 	private JTextField txtCantAlim1;
 	private JTextField txtCantAlim2;
 	private JTextField txtCantAlim3;
@@ -104,6 +93,8 @@ public class Ventana {
 	private JLabel lblgr5;
 	private JLabel lblErrorAzucar;
 
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -126,11 +117,72 @@ public class Ventana {
 	public Ventana() {
 		initialize();
 	}
-
+//////////////////////////////////////////////////////////////////////////////////////
+	
+	
 	/**
 	 * Initialize the contents of the frame.
-	 */
+	 */	
 	private void initialize() {
+		
+	
+		/**
+		 * Rellenamos el ArrayList con las cajas de texto
+		 */
+		cajasTexto.add(txtCantAlim1);
+		cajasTexto.add(txtCantAlim2);
+		cajasTexto.add(txtCantAlim3);
+		cajasTexto.add(txtCantAlim4);
+		cajasTexto.add(txtCantAlim5);
+		
+		
+		
+		/**
+		 * Completar el ArrayList con las cajas de los resultados
+		 */
+		cajasResultados.get(0).add(txtGrasas0);
+		cajasResultados.get(0).add(txtGSat0);
+		cajasResultados.get(0).add(txtHCarb0);
+		cajasResultados.get(0).add(txtAzucar0);
+		cajasResultados.get(0).add(txtProt0);
+		cajasResultados.get(0).add(txtSal0);
+		cajasResultados.get(0).add(txtCal0);		
+		
+		cajasResultados.get(1).add(txtGrasas1);
+		cajasResultados.get(1).add(txtGSat1);
+		cajasResultados.get(1).add(txtHCarb1);
+		cajasResultados.get(1).add(txtAzucar1);
+		cajasResultados.get(1).add(txtProt1);
+		cajasResultados.get(1).add(txtSal1);
+		cajasResultados.get(1).add(txtCal1);
+		
+		cajasResultados.get(2).add(txtGrasas2);
+		cajasResultados.get(2).add(txtGSat2);
+		cajasResultados.get(2).add(txtHCarb2);
+		cajasResultados.get(2).add(txtAzucar2);
+		cajasResultados.get(2).add(txtProt2);
+		cajasResultados.get(2).add(txtSal2);
+		cajasResultados.get(2).add(txtCal2);
+		
+		cajasResultados.get(3).add(txtGrasas3);
+		cajasResultados.get(3).add(txtGSat3);
+		cajasResultados.get(3).add(txtHCarb3);
+		cajasResultados.get(3).add(txtAzucar3);
+		cajasResultados.get(3).add(txtProt3);
+		cajasResultados.get(3).add(txtSal3);
+		cajasResultados.get(3).add(txtCal3);
+		
+		cajasResultados.get(4).add(txtGrasas4);
+		cajasResultados.get(4).add(txtGSat4);
+		cajasResultados.get(4).add(txtHCarb4);
+		cajasResultados.get(4).add(txtAzucar4);
+		cajasResultados.get(4).add(txtProt4);
+		cajasResultados.get(4).add(txtSal4);
+		cajasResultados.get(4).add(txtCal4);
+		
+	
+		
+		
 		// Creamos los alimentos que introduciremos en el ArrayList
 		// Orden: Nombre, Grasas, Grasas Saturadas, Hidratos de carbono, Azucar, Proteínas, Sal, kiloCalorías
 		Alimento tomateFrito = new Alimento ("Tomate frito", 3.5, 0.3, 9.5, 6.9, 1.5, 1, 77);
@@ -174,6 +226,9 @@ public class Ventana {
 			}
 			
 		}
+		
+		
+		
 		
 		
 		
@@ -544,9 +599,7 @@ public class Ventana {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
-				
-				//jyjgjyjyt
+				//Aqui va el evento
 			}
 		});
 		btnValidarDieta.addActionListener(new ActionListener() {
@@ -574,14 +627,21 @@ public class Ventana {
 		
 		lblgr5 = new JLabel("g");
 		lblgr5.setBounds(274, 278, 18, 17);
-		frame.getContentPane().add(lblgr5);
-		
-		
-		
-		
-		
-		
-		
-		
+		frame.getContentPane().add(lblgr5);			
 	}
+	
+	
+	/**
+	 * Metodo para calcular los valores nutricionales
+	 */
+	private void calcularValoresNutricionales (ArrayList<Alimento> alimento)
+	{				
+		for (int i=0; i<cajasTexto.size(); i++)
+		{
+			
+		}
+	}
+	
+	
+	
 }
