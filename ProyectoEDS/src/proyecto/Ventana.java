@@ -18,6 +18,10 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import java.awt.Panel;
+import javax.swing.JTextPane;
 
 
 public class Ventana {
@@ -28,6 +32,10 @@ public class Ventana {
 	private ArrayList <JTextField> cajasCantidades = new ArrayList<>();
 	private ArrayList <ArrayList <JTextField>> cajasResultados = new ArrayList<ArrayList<JTextField>>(10);
 	
+	/**
+	 * Creamos un ArrayList de las checkboxes
+	 */
+	private ArrayList <JCheckBox> checkboxes = new ArrayList<>();
 	
 	private JFrame frame;
 	
@@ -84,6 +92,8 @@ public class Ventana {
 	private JLabel lblgr4;
 	private JLabel lblgr5;
 	private JLabel lblErrorAzucar;
+	private JTextField txtVerde;
+	private JTextField txtRojo;
 
 		
 	/**
@@ -144,6 +154,7 @@ public class Ventana {
 		alimentosAL.add(patatasBolsa);
 		
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(216, 191, 216));
 		frame.setBounds(100, 100, 1331, 660);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -185,15 +196,16 @@ public class Ventana {
 		// Anadimos el 1er alimento a la etiqueta de alimento
 		lblAlimento1.setText(alimentosAL.get(0).getNombre());
 		
-		JCheckBox chckAlim1 = new JCheckBox("");
-		chckAlim1.setBounds(23, 97, 18, 25);
-		frame.getContentPane().add(chckAlim1);
+		
+		
 		
 		/**
 		 * Se crean las cajas de texto de las cantidades y rellenamos el ArrayList
 		 */
 		
 		txtCantAlim1 = new JTextField();
+		txtCantAlim1.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim1.setEnabled(false);
 		txtCantAlim1.setText("0");
 		txtCantAlim1.setBounds(196, 101, 67, 21);
 		frame.getContentPane().add(txtCantAlim1);
@@ -201,6 +213,8 @@ public class Ventana {
 		cajasCantidades.add(txtCantAlim1);
 		
 		txtCantAlim2 = new JTextField();
+		txtCantAlim2.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim2.setEnabled(false);
 		txtCantAlim2.setText("0");
 		txtCantAlim2.setBounds(196, 143, 67, 21);
 		frame.getContentPane().add(txtCantAlim2);
@@ -208,6 +222,8 @@ public class Ventana {
 		cajasCantidades.add(txtCantAlim2);
 		
 		txtCantAlim3 = new JTextField();
+		txtCantAlim3.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim3.setEnabled(false);
 		txtCantAlim3.setText("0");
 		txtCantAlim3.setBounds(196, 186, 67, 21);
 		frame.getContentPane().add(txtCantAlim3);
@@ -215,6 +231,8 @@ public class Ventana {
 		cajasCantidades.add(txtCantAlim3);
 		
 		txtCantAlim4 = new JTextField();
+		txtCantAlim4.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim4.setEnabled(false);
 		txtCantAlim4.setText("0");
 		txtCantAlim4.setColumns(10);
 		txtCantAlim4.setBounds(196, 230, 67, 21);
@@ -222,25 +240,71 @@ public class Ventana {
 		cajasCantidades.add(txtCantAlim4);
 		
 		txtCantAlim5 = new JTextField();
+		txtCantAlim5.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim5.setEnabled(false);
 		txtCantAlim5.setText("0");
 		txtCantAlim5.setColumns(10);
 		txtCantAlim5.setBounds(196, 276, 67, 21);
 		frame.getContentPane().add(txtCantAlim5);
 		cajasCantidades.add(txtCantAlim5);
 		
+		JCheckBox chckAlim1 = new JCheckBox("");
+		chckAlim1.setBackground(new Color(216, 191, 216));
+		chckAlim1.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				Metodos.comprobarCheck(chckAlim1, txtCantAlim1);
+			}
+		});
+		chckAlim1.setBounds(23, 97, 18, 25);
+		frame.getContentPane().add(chckAlim1);
+		
 		JCheckBox chckAlim2 = new JCheckBox("");
+		chckAlim2.setBackground(new Color(216, 191, 216));
+		chckAlim2.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				Metodos.comprobarCheck(chckAlim2, txtCantAlim2);
+			}
+		});
 		chckAlim2.setBounds(23, 139, 21, 25);
 		frame.getContentPane().add(chckAlim2);
+		
+		JCheckBox chckAlim3 = new JCheckBox("New check box");
+		chckAlim3.setBackground(new Color(216, 191, 216));
+		chckAlim3.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				Metodos.comprobarCheck(chckAlim3, txtCantAlim3);
+			}
+		});
+		chckAlim3.setBounds(23, 186, 18, 21);
+		frame.getContentPane().add(chckAlim3);
+		
+		JCheckBox chckAlim4 = new JCheckBox("New check box");
+		chckAlim4.setBackground(new Color(216, 191, 216));
+		chckAlim4.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				Metodos.comprobarCheck(chckAlim4, txtCantAlim4);
+			}
+		});
+		chckAlim4.setBounds(23, 228, 18, 21);
+		frame.getContentPane().add(chckAlim4);
+		
+		JCheckBox chckAlim5 = new JCheckBox("New check box");
+		chckAlim5.setBackground(new Color(216, 191, 216));
+		chckAlim5.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				Metodos.comprobarCheck(chckAlim5, txtCantAlim5);
+			}
+		});
+		chckAlim5.setBounds(23, 274, 18, 21);
+		frame.getContentPane().add(chckAlim5);
+		
+		
 		
 		JLabel lblAlimento2 = new JLabel("");
 		lblAlimento2.setBounds(55, 145, 131, 17);
 		frame.getContentPane().add(lblAlimento2);
 		// Anadimos el segundo alimento a la etiqueta
 		lblAlimento2.setText(alimentosAL.get(1).getNombre());
-		
-		JCheckBox chckAlim3 = new JCheckBox("New check box");
-		chckAlim3.setBounds(23, 186, 18, 21);
-		frame.getContentPane().add(chckAlim3);
 		
 		JLabel lblAlimento3 = new JLabel((String) null);
 		lblAlimento3.setBounds(55, 188, 131, 17);
@@ -283,26 +347,17 @@ public class Ventana {
 		lblCantidadesIngeridas.setBounds(563, 22, 193, 17);
 		frame.getContentPane().add(lblCantidadesIngeridas);
 		
-		
-		
 		JLabel lblAlimento4 = new JLabel((String) null);
 		lblAlimento4.setBounds(55, 232, 131, 17);
 		frame.getContentPane().add(lblAlimento4);
 		lblAlimento4.setText(alimentosAL.get(3).getNombre());
-		
-
-		JCheckBox chckAlim4 = new JCheckBox("New check box");
-		chckAlim4.setBounds(23, 228, 18, 21);
-		frame.getContentPane().add(chckAlim4);
 		
 		JLabel lblAlimento5 = new JLabel((String) null);
 		lblAlimento5.setBounds(55, 278, 131, 17);
 		frame.getContentPane().add(lblAlimento5);
 		lblAlimento5.setText(alimentosAL.get(4).getNombre());
 
-		JCheckBox chckAlim5 = new JCheckBox("New check box");
-		chckAlim5.setBounds(23, 274, 18, 21);
-		frame.getContentPane().add(chckAlim5);
+		
 
 		/**
 		 * Creamos las cajas de texto de los resultados y las añadimos al ArrayList
@@ -310,7 +365,6 @@ public class Ventana {
 		
 		// FILA 1
 		txtGrasas0 = new JTextField();
-		txtGrasas0.setText("0");
 		txtGrasas0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas0.setEditable(false);
 		txtGrasas0.setBounds(320, 101, 60, 21);
@@ -319,7 +373,6 @@ public class Ventana {
 		cajasResultados.get(0).add(txtGrasas0);
 		
 		txtGSat0 = new JTextField();
-		txtGSat0.setText("0");
 		txtGSat0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat0.setEditable(false);
 		txtGSat0.setColumns(10);
@@ -328,7 +381,6 @@ public class Ventana {
 		cajasResultados.get(0).add(txtGSat0);
 		
 		txtHCarb0 = new JTextField();
-		txtHCarb0.setText("0");
 		txtHCarb0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb0.setEditable(false);
 		txtHCarb0.setColumns(10);
@@ -337,7 +389,6 @@ public class Ventana {
 		cajasResultados.get(0).add(txtHCarb0);
 		
 		txtAzucar0 = new JTextField();
-		txtAzucar0.setText("0");
 		txtAzucar0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar0.setEditable(false);
 		txtAzucar0.setColumns(10);
@@ -346,7 +397,6 @@ public class Ventana {
 		cajasResultados.get(0).add(txtAzucar0);
 		
 		txtProt0 = new JTextField();
-		txtProt0.setText("0");
 		txtProt0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt0.setEditable(false);
 		txtProt0.setColumns(10);
@@ -355,7 +405,6 @@ public class Ventana {
 		cajasResultados.get(0).add(txtProt0);
 		
 		txtSal0 = new JTextField();
-		txtSal0.setText("0");
 		txtSal0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal0.setEditable(false);
 		txtSal0.setColumns(10);
@@ -364,7 +413,6 @@ public class Ventana {
 		cajasResultados.get(0).add(txtSal0);
 		
 		txtCal0 = new JTextField();
-		txtCal0.setText("0");
 		txtCal0.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal0.setEditable(false);
 		txtCal0.setColumns(10);
@@ -376,7 +424,6 @@ public class Ventana {
 		
 		// FILA 2
 		txtGrasas1 = new JTextField();
-		txtGrasas1.setText("0");
 		txtGrasas1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas1.setEditable(false);
 		txtGrasas1.setColumns(10);
@@ -385,7 +432,6 @@ public class Ventana {
 		cajasResultados.get(1).add(txtGrasas1);
 		
 		txtGSat1 = new JTextField();
-		txtGSat1.setText("0");
 		txtGSat1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat1.setEditable(false);
 		txtGSat1.setColumns(10);
@@ -394,7 +440,6 @@ public class Ventana {
 		cajasResultados.get(1).add(txtGSat1);
 		
 		txtHCarb1 = new JTextField();
-		txtHCarb1.setText("0");
 		txtHCarb1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb1.setEditable(false);
 		txtHCarb1.setColumns(10);
@@ -403,7 +448,6 @@ public class Ventana {
 		cajasResultados.get(1).add(txtHCarb1);
 		
 		txtAzucar1 = new JTextField();
-		txtAzucar1.setText("0");
 		txtAzucar1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar1.setEditable(false);
 		txtAzucar1.setColumns(10);
@@ -412,25 +456,22 @@ public class Ventana {
 		cajasResultados.get(1).add(txtAzucar1);
 		
 		txtProt1 = new JTextField();
-		txtProt1.setText("0");
 		txtProt1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt1.setEditable(false);
 		txtProt1.setColumns(10);
-		txtProt1.setBounds(880, 139, 60, 21);
+		txtProt1.setBounds(880, 143, 60, 21);
 		frame.getContentPane().add(txtProt1);
 		cajasResultados.get(1).add(txtProt1);
 		
 		txtSal1 = new JTextField();
-		txtSal1.setText("0");
 		txtSal1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal1.setEditable(false);
 		txtSal1.setColumns(10);
-		txtSal1.setBounds(1020, 139, 60, 21);
+		txtSal1.setBounds(1020, 143, 60, 21);
 		frame.getContentPane().add(txtSal1);
 		cajasResultados.get(1).add(txtSal1);
 		
 		txtCal1 = new JTextField();
-		txtCal1.setText("0");
 		txtCal1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal1.setEditable(false);
 		txtCal1.setColumns(10);
@@ -443,7 +484,6 @@ public class Ventana {
 		// FILA 3
 		
 		txtGrasas2 = new JTextField();
-		txtGrasas2.setText("0");
 		txtGrasas2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas2.setEditable(false);
 		txtGrasas2.setColumns(10);
@@ -452,7 +492,6 @@ public class Ventana {
 		cajasResultados.get(2).add(txtGrasas2);
 		
 		txtGSat2 = new JTextField();
-		txtGSat2.setText("0");
 		txtGSat2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat2.setEditable(false);
 		txtGSat2.setColumns(10);
@@ -461,7 +500,6 @@ public class Ventana {
 		cajasResultados.get(2).add(txtGSat2);
 		
 		txtHCarb2 = new JTextField();
-		txtHCarb2.setText("0");
 		txtHCarb2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb2.setEditable(false);
 		txtHCarb2.setColumns(10);
@@ -470,7 +508,6 @@ public class Ventana {
 		cajasResultados.get(2).add(txtHCarb2);
 		
 		txtAzucar2 = new JTextField();
-		txtAzucar2.setText("0");
 		txtAzucar2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar2.setEditable(false);
 		txtAzucar2.setColumns(10);
@@ -479,7 +516,6 @@ public class Ventana {
 		cajasResultados.get(2).add(txtAzucar2);
 		
 		txtProt2 = new JTextField();
-		txtProt2.setText("0");
 		txtProt2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt2.setEditable(false);
 		txtProt2.setColumns(10);
@@ -488,7 +524,6 @@ public class Ventana {
 		cajasResultados.get(2).add(txtProt2);
 		
 		txtSal2 = new JTextField();
-		txtSal2.setText("0");
 		txtSal2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal2.setEditable(false);
 		txtSal2.setColumns(10);
@@ -497,7 +532,6 @@ public class Ventana {
 		cajasResultados.get(2).add(txtSal2);
 		
 		txtCal2 = new JTextField();
-		txtCal2.setText("0");
 		txtCal2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal2.setEditable(false);
 		txtCal2.setColumns(10);
@@ -510,7 +544,6 @@ public class Ventana {
 		// FILA 4
 		
 		txtGrasas3 = new JTextField();
-		txtGrasas3.setText("0");
 		txtGrasas3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas3.setEditable(false);
 		txtGrasas3.setColumns(10);
@@ -519,7 +552,6 @@ public class Ventana {
 		cajasResultados.get(3).add(txtGrasas3);
 		
 		txtGSat3 = new JTextField();
-		txtGSat3.setText("0");
 		txtGSat3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat3.setEditable(false);
 		txtGSat3.setColumns(10);
@@ -528,7 +560,6 @@ public class Ventana {
 		cajasResultados.get(3).add(txtGSat3);
 		
 		txtHCarb3 = new JTextField();
-		txtHCarb3.setText("0");
 		txtHCarb3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb3.setEditable(false);
 		txtHCarb3.setColumns(10);
@@ -537,7 +568,6 @@ public class Ventana {
 		cajasResultados.get(3).add(txtHCarb3);
 		
 		txtAzucar3 = new JTextField();
-		txtAzucar3.setText("0");
 		txtAzucar3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar3.setEditable(false);
 		txtAzucar3.setColumns(10);
@@ -546,7 +576,6 @@ public class Ventana {
 		cajasResultados.get(3).add(txtAzucar3);
 		
 		txtProt3 = new JTextField();
-		txtProt3.setText("0");
 		txtProt3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt3.setEditable(false);
 		txtProt3.setColumns(10);
@@ -555,7 +584,6 @@ public class Ventana {
 		cajasResultados.get(3).add(txtProt3);
 		
 		txtSal3 = new JTextField();
-		txtSal3.setText("0");
 		txtSal3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal3.setEditable(false);
 		txtSal3.setColumns(10);
@@ -564,7 +592,6 @@ public class Ventana {
 		cajasResultados.get(3).add(txtSal3);
 		
 		txtCal3 = new JTextField();
-		txtCal3.setText("0");
 		txtCal3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal3.setEditable(false);
 		txtCal3.setColumns(10);
@@ -577,7 +604,6 @@ public class Ventana {
 		// FILA 5
 	
 		txtGrasas4 = new JTextField();
-		txtGrasas4.setText("0");
 		txtGrasas4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas4.setEditable(false);
 		txtGrasas4.setColumns(10);
@@ -586,7 +612,6 @@ public class Ventana {
 		cajasResultados.get(4).add(txtGrasas4);
 		
 		txtGSat4 = new JTextField();
-		txtGSat4.setText("0");
 		txtGSat4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat4.setEditable(false);
 		txtGSat4.setColumns(10);
@@ -595,7 +620,6 @@ public class Ventana {
 		cajasResultados.get(4).add(txtGSat4);
 		
 		txtHCarb4 = new JTextField();
-		txtHCarb4.setText("0");
 		txtHCarb4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb4.setEditable(false);
 		txtHCarb4.setColumns(10);
@@ -604,7 +628,6 @@ public class Ventana {
 		cajasResultados.get(4).add(txtHCarb4);
 		
 		txtAzucar4 = new JTextField();
-		txtAzucar4.setText("0");
 		txtAzucar4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar4.setEditable(false);
 		txtAzucar4.setColumns(10);
@@ -613,7 +636,6 @@ public class Ventana {
 		cajasResultados.get(4).add(txtAzucar4);
 		
 		txtProt4 = new JTextField();
-		txtProt4.setText("0");
 		txtProt4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt4.setEditable(false);
 		txtProt4.setColumns(10);
@@ -622,16 +644,14 @@ public class Ventana {
 		cajasResultados.get(4).add(txtProt4);
 		
 		txtSal4 = new JTextField();
-		txtSal4.setText("0");
 		txtSal4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal4.setEditable(false);
 		txtSal4.setColumns(10);
-		txtSal4.setBounds(1020, 274, 60, 21);
+		txtSal4.setBounds(1020, 276, 60, 21);
 		frame.getContentPane().add(txtSal4);
 		cajasResultados.get(4).add(txtSal4);
 		
 		txtCal4 = new JTextField();
-		txtCal4.setText("0");
 		txtCal4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCal4.setEditable(false);
 		txtCal4.setColumns(10);
@@ -643,6 +663,7 @@ public class Ventana {
 		
 		
 		JButton btnValidarDieta = new JButton("Validar dieta");
+		btnValidarDieta.setBackground(new Color(255, 255, 255));
 		btnValidarDieta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -675,7 +696,50 @@ public class Ventana {
 		
 		lblgr5 = new JLabel("g");
 		lblgr5.setBounds(274, 278, 18, 17);
-		frame.getContentPane().add(lblgr5);	
+		frame.getContentPane().add(lblgr5);
+		
+		txtVerde = new JTextField();
+		txtVerde.setBackground(new Color(0, 100, 0));
+		txtVerde.setEditable(false);
+		txtVerde.setEnabled(false);
+		txtVerde.setBounds(23, 551, 37, 20);
+		frame.getContentPane().add(txtVerde);
+		txtVerde.setColumns(10);
+		
+		txtRojo = new JTextField();
+		txtRojo.setBackground(new Color(128, 0, 0));
+		txtRojo.setEditable(false);
+		txtRojo.setEnabled(false);
+		txtRojo.setColumns(10);
+		txtRojo.setBounds(23, 577, 37, 20);
+		frame.getContentPane().add(txtRojo);
+		
+		JLabel lblCorrectoValores = new JLabel("Est\u00E1 dentro de los valores nutricionales saludables");
+		lblCorrectoValores.setBounds(70, 554, 325, 14);
+		frame.getContentPane().add(lblCorrectoValores);
+		
+		JLabel lblIncorrectoValores = new JLabel("No est\u00E1 dentro de los valores nutricionales saludables");
+		lblIncorrectoValores.setBounds(70, 580, 325, 14);
+		frame.getContentPane().add(lblIncorrectoValores);
+		
+		JLabel lblAyuda = new JLabel("");
+		lblAyuda.setBounds(828, 377, 477, 194);
+		frame.getContentPane().add(lblAyuda);
+		
+		JButton btnAyuda = new JButton("?");
+		btnAyuda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (lblAyuda.getText().equals("")) {
+					lblAyuda.setText("Seleccione que alimentos consume" + "\n" + "Indique cuanta cantidad\nY pulse el boton");
+				}
+				
+			}
+		});
+		btnAyuda.setBounds(1259, 576, 46, 22);
+		frame.getContentPane().add(btnAyuda);
+		
+		
 	}
 	
 	/**
@@ -695,42 +759,50 @@ public class Ventana {
 				 */
 				switch (j) {
 				case 0:
-					resultadoActual = (cantidadActual * alimentos.get(i).getGrasas()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
-				case 1:
-					resultadoActual = (cantidadActual * alimentos.get(i).getGrasasSat()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
-				case 2:
-					resultadoActual = (cantidadActual * alimentos.get(i).getHidratosCarbono()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
-				case 3:
-					resultadoActual = (cantidadActual * alimentos.get(i).getAzucar()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
-				case 4:
-					resultadoActual = (cantidadActual * alimentos.get(i).getProteinas()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
-				case 5:
-					resultadoActual = (cantidadActual * alimentos.get(i).getSal()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
-				case 6:
-					resultadoActual = (cantidadActual * alimentos.get(i).getKiloCalorias()) /100;
-					resultadoEnTexto = Double.toString(resultadoActual);
-					cajasResultados.get(i).get(j).setText(resultadoEnTexto);
-					break;
+                    resultadoActual = (cantidadActual * alimentos.get(i).getGrasas())/100 ;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
+                case 1:
+                    resultadoActual = (cantidadActual * alimentos.get(i).getGrasasSat())/100;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
+                case 2:
+                    resultadoActual = (cantidadActual * alimentos.get(i).getHidratosCarbono())/100;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
+                case 3:
+                    resultadoActual = (cantidadActual * alimentos.get(i).getAzucar())/100;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
+                case 4:
+                    resultadoActual = (cantidadActual * alimentos.get(i).getProteinas())/100;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
+                case 5:
+                    resultadoActual = (cantidadActual * alimentos.get(i).getSal())/100;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
+                case 6:
+                    resultadoActual = (cantidadActual * alimentos.get(i).getKiloCalorias())/100;
+                    resultadoEnTexto = Double.toString(resultadoActual);
+                    cajasResultados.get(i).get(j).setText(resultadoEnTexto);
+                    break;
 				}
 			}
 		}
 	}
+	
+	// Metodo para comprobar el estado de la checkbox
+	public static void comprobarCheck(JCheckBox checkbox, JTextField textfield) {
+		if (checkbox.isSelected()) {
+			textfield.setEnabled(true);
+		}
+	}
+	
 }
