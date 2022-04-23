@@ -161,7 +161,7 @@ public class Ventana {
 		
 		
 		JLabel lblErrorSaturadas = new JLabel("");
-		lblErrorSaturadas.setBounds(466, 377, 360, 17);
+		lblErrorSaturadas.setBounds(491, 369, 360, 17);
 		frame.getContentPane().add(lblErrorSaturadas);
 		
 		JLabel lblErrorAzucar = new JLabel("");
@@ -343,7 +343,7 @@ public class Ventana {
 		JLabel lblCantidadesIngeridas = new JLabel("Valores nutricionales");
 		lblCantidadesIngeridas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCantidadesIngeridas.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCantidadesIngeridas.setForeground(new Color(30, 144, 255));
+		lblCantidadesIngeridas.setForeground(new Color(0, 0, 0));
 		lblCantidadesIngeridas.setBounds(563, 22, 193, 17);
 		frame.getContentPane().add(lblCantidadesIngeridas);
 		
@@ -661,20 +661,27 @@ public class Ventana {
 		
 		// FIN FILA 5 ///////////////////////////////////////////////////////////////////////////////
 		
-		
+		JLabel lblErrorTextoNoAdmitido = new JLabel("");
+		lblErrorTextoNoAdmitido.setBounds(600, 431, 67, 17);
+		frame.getContentPane().add(lblErrorTextoNoAdmitido);
+					
 		JButton btnValidarDieta = new JButton("Validar dieta");
-		btnValidarDieta.setBackground(new Color(255, 255, 255));
-		btnValidarDieta.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				calcularValoresNutricionales(alimentosAL);
-			}
-		});
 		btnValidarDieta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (!comprobarLetraEnCaja())
+				{
+					lblErrorTextoNoAdmitido.setText("Solo se admiten números");
+				}
+				else
+				{	
+					lblErrorTextoNoAdmitido.setText("");
+					calcularValoresNutricionales(alimentosAL);
+				}
+				
 			}
 		});
+		btnValidarDieta.setBackground(new Color(255, 255, 255));
 		btnValidarDieta.setBounds(589, 459, 114, 27);
 		frame.getContentPane().add(btnValidarDieta);
 		
@@ -723,21 +730,39 @@ public class Ventana {
 		frame.getContentPane().add(lblIncorrectoValores);
 		
 		JLabel lblAyuda = new JLabel("");
-		lblAyuda.setBounds(828, 377, 477, 194);
+		lblAyuda.setForeground(new Color(0, 0, 0));
+		lblAyuda.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAyuda.setBounds(1094, 482, 211, 89);
 		frame.getContentPane().add(lblAyuda);
 		
-		JButton btnAyuda = new JButton("?");
+		JButton btnAyuda = new JButton("?");	
+		btnAyuda.setBackground(new Color(255, 255, 255));
+		btnAyuda.setForeground(new Color(0, 0, 0));
+		/**
+		 * Evento para sacar el mensaje al pulsar el boton de ayuda
+		 */
 		btnAyuda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 				if (lblAyuda.getText().equals("")) {
-					lblAyuda.setText("Seleccione que alimentos consume" + "\n" + "Indique cuanta cantidad\nY pulse el boton");
+					lblAyuda.setOpaque(true);
+					lblAyuda.setBackground(new Color(255,248,220));
+					String mensajeAyuda="<html> <body> Seleccione que alimentos consume, <br> indique cuanta cantidad <br> y pulse el botón. </body> </html>";
+					lblAyuda.setText(mensajeAyuda);
+				}
+				else
+				{
+					lblAyuda.setOpaque(false);
+					lblAyuda.setText("");
 				}
 				
 			}
 		});
 		btnAyuda.setBounds(1259, 576, 46, 22);
 		frame.getContentPane().add(btnAyuda);
+		
+		
 		
 		
 	}
@@ -748,7 +773,7 @@ public class Ventana {
 	private void calcularValoresNutricionales (ArrayList<Alimento> alimentos)
 	{				
 		for (int i=0; i< cajasCantidades.size(); i++)
-		{
+		{		
 			String textoCantidad = cajasCantidades.get(i).getText();
 			double cantidadActual = Double.valueOf(textoCantidad);
 			double resultadoActual = 0;
@@ -795,14 +820,32 @@ public class Ventana {
                     break;
 				}
 			}
-		}
+		}	
 	}
 	
+	private boolean comprobarLetraEnCaja()
+	{
+		boolean hayLetras=false;
+		for (int i=0; i<cajasCantidades.size(); i++)
+		{
+			String textoCaja=cajasCantidades.get(i).getText();
+			if(textoCaja.matches("[+-]?\\d*(\\.\\d+)?"))
+			{
+				hayLetras=false;
+			}
+			else
+			{
+				hayLetras=true;
+			}
+		}
+		return hayLetras;
+	}
+	
+	
 	// Metodo para comprobar el estado de la checkbox
-	public static void comprobarCheck(JCheckBox checkbox, JTextField textfield) {
+	private  static void comprobarCheck(JCheckBox checkbox, JTextField textfield) {
 		if (checkbox.isSelected()) {
 			textfield.setEnabled(true);
 		}
 	}
-	
 }
