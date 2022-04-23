@@ -303,8 +303,6 @@ public class Ventana {
 		JCheckBox chckAlim5 = new JCheckBox("New check box");
 		chckAlim5.setBounds(23, 274, 18, 21);
 		frame.getContentPane().add(chckAlim5);
-		
-		
 
 		/**
 		 * Creamos las cajas de texto de los resultados y las añadimos al ArrayList
