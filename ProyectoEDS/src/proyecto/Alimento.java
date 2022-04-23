@@ -13,9 +13,9 @@ public class Alimento {
 	protected double azucar;
 	protected double proteinas;
 	protected double sal;
-	protected double calorias;
+	protected double kiloCalorias;
 
-	Alimento (String nombre, double grasas, double grasasSat, double hidratosCarbono, double azucar, double proteinas, double sal, double calorias){
+	Alimento (String nombre, double grasas, double grasasSat, double hidratosCarbono, double azucar, double proteinas, double sal, double kiloCalorias){
 		this.nombre = nombre;
 		this.grasas = grasas;
 		this.grasasSat = grasasSat;
@@ -23,7 +23,7 @@ public class Alimento {
 		this.azucar = azucar;
 		this.proteinas = proteinas;
 		this.sal = sal;
-		this.calorias = calorias;
+		this.kiloCalorias = kiloCalorias;
 	}
 
 	public String getNombre() {
@@ -54,8 +54,8 @@ public class Alimento {
 		return sal;
 	}
 
-	public double getCalorias() {
-		return calorias;
+	public double getKiloCalorias() {
+		return kiloCalorias;
 	}
 
 	public void setNombre(String nombre) {
@@ -87,7 +87,7 @@ public class Alimento {
 	}
 
 	public void setCalorias(double calorias) {
-		this.calorias = calorias;
+		this.kiloCalorias = calorias;
 
 	}
 
