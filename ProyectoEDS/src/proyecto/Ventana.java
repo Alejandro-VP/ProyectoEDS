@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -29,13 +30,13 @@ public class Ventana {
 	/**
 	 * Creamos dos ArrayList donde guardaremos las cajas de texto 
 	 */
-	private ArrayList <JTextField> cajasCantidades = new ArrayList<>();
+	private static ArrayList <JTextField> cajasCantidades = new ArrayList<>();
 	private ArrayList <ArrayList <JTextField>> cajasResultados = new ArrayList<ArrayList<JTextField>>(10);
 	
 	/**
 	 * Creamos un ArrayList de las checkboxes
 	 */
-	private ArrayList <JCheckBox> checkboxes = new ArrayList<>();
+	private static ArrayList <JCheckBox> checkboxes = new ArrayList<>();
 	
 	private JFrame frame;
 	
@@ -43,7 +44,7 @@ public class Ventana {
 	 *  Creamos un ArrayList donde iremos anadiremos los alimentos
 	 */
 	
-	private ArrayList <Alimento> alimentosAL = new ArrayList <> ();
+	private static ArrayList <Alimento> alimentosAL = new ArrayList <> ();
 	
 	
 	private JTextField txtCantAlim1;
@@ -197,8 +198,6 @@ public class Ventana {
 		lblAlimento1.setText(alimentosAL.get(0).getNombre());
 		
 		
-		
-		
 		/**
 		 * Se crean las cajas de texto de las cantidades y rellenamos el ArrayList
 		 */
@@ -252,7 +251,7 @@ public class Ventana {
 		chckAlim1.setBackground(new Color(216, 191, 216));
 		chckAlim1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Metodos.comprobarCheck(chckAlim1, txtCantAlim1);
+				comprobarCheck(chckAlim1, txtCantAlim1);
 			}
 		});
 		chckAlim1.setBounds(23, 97, 18, 25);
@@ -262,7 +261,7 @@ public class Ventana {
 		chckAlim2.setBackground(new Color(216, 191, 216));
 		chckAlim2.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Metodos.comprobarCheck(chckAlim2, txtCantAlim2);
+				comprobarCheck(chckAlim2, txtCantAlim2);
 			}
 		});
 		chckAlim2.setBounds(23, 139, 21, 25);
@@ -272,7 +271,7 @@ public class Ventana {
 		chckAlim3.setBackground(new Color(216, 191, 216));
 		chckAlim3.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Metodos.comprobarCheck(chckAlim3, txtCantAlim3);
+				comprobarCheck(chckAlim3, txtCantAlim3);
 			}
 		});
 		chckAlim3.setBounds(23, 186, 18, 21);
@@ -282,7 +281,7 @@ public class Ventana {
 		chckAlim4.setBackground(new Color(216, 191, 216));
 		chckAlim4.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Metodos.comprobarCheck(chckAlim4, txtCantAlim4);
+				comprobarCheck(chckAlim4, txtCantAlim4);
 			}
 		});
 		chckAlim4.setBounds(23, 228, 18, 21);
@@ -292,14 +291,18 @@ public class Ventana {
 		chckAlim5.setBackground(new Color(216, 191, 216));
 		chckAlim5.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Metodos.comprobarCheck(chckAlim5, txtCantAlim5);
+				comprobarCheck(chckAlim5, txtCantAlim5);
 			}
 		});
 		chckAlim5.setBounds(23, 274, 18, 21);
 		frame.getContentPane().add(chckAlim5);
 		
-		
-		
+		checkboxes.add(chckAlim1);
+		checkboxes.add(chckAlim2);
+		checkboxes.add(chckAlim3);
+		checkboxes.add(chckAlim4);
+		checkboxes.add(chckAlim5);
+
 		JLabel lblAlimento2 = new JLabel("");
 		lblAlimento2.setBounds(55, 145, 131, 17);
 		frame.getContentPane().add(lblAlimento2);
@@ -344,7 +347,7 @@ public class Ventana {
 		lblCantidadesIngeridas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCantidadesIngeridas.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCantidadesIngeridas.setForeground(new Color(0, 0, 0));
-		lblCantidadesIngeridas.setBounds(563, 22, 193, 17);
+		lblCantidadesIngeridas.setBounds(561, 22, 193, 17);
 		frame.getContentPane().add(lblCantidadesIngeridas);
 		
 		JLabel lblAlimento4 = new JLabel((String) null);
@@ -658,31 +661,31 @@ public class Ventana {
 		txtCal4.setBounds(1161, 276, 60, 21);
 		frame.getContentPane().add(txtCal4);
 		cajasResultados.get(4).add(txtCal4);
-		
-		// FIN FILA 5 ///////////////////////////////////////////////////////////////////////////////
-		
-		JLabel lblErrorTextoNoAdmitido = new JLabel("");
-		lblErrorTextoNoAdmitido.setBounds(600, 431, 67, 17);
-		frame.getContentPane().add(lblErrorTextoNoAdmitido);
-					
+
 		JButton btnValidarDieta = new JButton("Validar dieta");
 		btnValidarDieta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if (!comprobarLetraEnCaja())
-				{
-					lblErrorTextoNoAdmitido.setText("Solo se admiten números");
-				}
-				else
-				{	
-					lblErrorTextoNoAdmitido.setText("");
+
+				try {		
 					calcularValoresNutricionales(alimentosAL);
+					System.out.println(calcularGrasasTotales(alimentosAL));
+					System.out.println(calcularIngestaCalorica(alimentosAL));
+					if (calcularGrasasTotales(alimentosAL)<(calcularIngestaCalorica(alimentosAL)*30/100)) {
+						cajasResultados.get(0).get(0).setBackground(new Color (0,255,0));
+					}
+					else {
+						cajasResultados.get(0).get(0).setBackground(new Color (255,0,0));
+					}
 				}
-				
+
+				catch (NumberFormatException e1){
+					JOptionPane.showMessageDialog(frame, "¡Solo números admitidos!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+
 			}
 		});
 		btnValidarDieta.setBackground(new Color(255, 255, 255));
-		btnValidarDieta.setBounds(589, 459, 114, 27);
+		btnValidarDieta.setBounds(600, 459, 114, 27);
 		frame.getContentPane().add(btnValidarDieta);
 		
 		lblgr1 = new JLabel("g");
@@ -706,7 +709,7 @@ public class Ventana {
 		frame.getContentPane().add(lblgr5);
 		
 		txtVerde = new JTextField();
-		txtVerde.setBackground(new Color(0, 100, 0));
+		txtVerde.setBackground(Color.GREEN);
 		txtVerde.setEditable(false);
 		txtVerde.setEnabled(false);
 		txtVerde.setBounds(23, 551, 37, 20);
@@ -714,7 +717,7 @@ public class Ventana {
 		txtVerde.setColumns(10);
 		
 		txtRojo = new JTextField();
-		txtRojo.setBackground(new Color(128, 0, 0));
+		txtRojo.setBackground(Color.RED);
 		txtRojo.setEditable(false);
 		txtRojo.setEnabled(false);
 		txtRojo.setColumns(10);
@@ -744,26 +747,11 @@ public class Ventana {
 		btnAyuda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				if (lblAyuda.getText().equals("")) {
-					lblAyuda.setOpaque(true);
-					lblAyuda.setBackground(new Color(255,248,220));
-					String mensajeAyuda="<html> <body> Seleccione que alimentos consume, <br> indique cuanta cantidad <br> y pulse el botón. </body> </html>";
-					lblAyuda.setText(mensajeAyuda);
-				}
-				else
-				{
-					lblAyuda.setOpaque(false);
-					lblAyuda.setText("");
-				}
-				
+				JOptionPane.showMessageDialog(frame, "Seleccione que alimentos consume, indique cuanta cantidad y pulse el botón", "Help", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnAyuda.setBounds(1259, 576, 46, 22);
 		frame.getContentPane().add(btnAyuda);
-		
-		
-		
 		
 	}
 	
@@ -822,30 +810,37 @@ public class Ventana {
 			}
 		}	
 	}
-	
-	private boolean comprobarLetraEnCaja()
-	{
-		boolean hayLetras=false;
-		for (int i=0; i<cajasCantidades.size(); i++)
-		{
-			String textoCaja=cajasCantidades.get(i).getText();
-			if(textoCaja.matches("[+-]?\\d*(\\.\\d+)?"))
-			{
-				hayLetras=false;
-			}
-			else
-			{
-				hayLetras=true;
-			}
-		}
-		return hayLetras;
-	}
-	
-	
+
 	// Metodo para comprobar el estado de la checkbox
-	private  static void comprobarCheck(JCheckBox checkbox, JTextField textfield) {
+	private static void comprobarCheck(JCheckBox checkbox, JTextField textfield) {
 		if (checkbox.isSelected()) {
 			textfield.setEnabled(true);
 		}
 	}
+
+	// Metodo para calcular la ingesta calorica total
+	private static double calcularIngestaCalorica(ArrayList <Alimento> alimentos) {
+		double totalKCal=0;
+		for (int i=0;i<alimentos.size();i++) {
+			if (checkboxes.get(i).isSelected()) {
+				totalKCal+=alimentos.get(i).getKiloCalorias();
+			}
+		}
+		return totalKCal;
+	}
+
+	// Metodo para calcular las grasas totales
+	private static double calcularGrasasTotales (ArrayList <Alimento> alimentos) {
+		double totalGrasas=0;
+		System.out.println(checkboxes.get(0).isSelected());
+		for (int i=0;i<alimentos.size();i++) {
+			if (checkboxes.get(i).isSelected()) {
+				totalGrasas+=alimentos.get(i).getGrasas();
+			}
+		}
+		return totalGrasas;
+	}
+
+
+
 }
