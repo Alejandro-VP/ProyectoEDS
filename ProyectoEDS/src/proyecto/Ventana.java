@@ -193,11 +193,7 @@ public class Ventana {
 		lblCantidad.setBounds(208, 62, 51, 17);
 		frmInutritionist.getContentPane().add(lblCantidad);
 		
-		JLabel lblAlimento1 = new JLabel("");
-		lblAlimento1.setBounds(55, 103, 131, 17);
-		frmInutritionist.getContentPane().add(lblAlimento1);
-		// Anadimos el 1er alimento a la etiqueta de alimento
-		lblAlimento1.setText(alimentosAL.get(0).getNombre());
+		
 		
 		
 		/**
@@ -364,6 +360,12 @@ public class Ventana {
 		checkboxes.add(chckAlim4);
 		checkboxes.add(chckAlim5);
 
+		JLabel lblAlimento1 = new JLabel("");
+		lblAlimento1.setBounds(55, 103, 131, 17);
+		frmInutritionist.getContentPane().add(lblAlimento1);
+		// Anadimos el primer alimento a la etiqueta de alimento
+		lblAlimento1.setText(alimentosAL.get(0).getNombre());
+		
 		JLabel lblAlimento2 = new JLabel("");
 		lblAlimento2.setBounds(55, 145, 131, 17);
 		frmInutritionist.getContentPane().add(lblAlimento2);
