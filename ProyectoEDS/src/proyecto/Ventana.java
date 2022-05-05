@@ -23,6 +23,9 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.Panel;
 import javax.swing.JTextPane;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Canvas;
 
 
 public class Ventana {
@@ -40,7 +43,7 @@ public class Ventana {
 	 *  Creamos un ArrayList donde iremos anadiremos los alimentos
 	 */
 	
-	private static ArrayList <Alimento> alimentosAL = new ArrayList <> ();
+	protected static ArrayList <Alimento> alimentosAL = new ArrayList <> ();
 	
 	
 	private JTextField txtCantAlim1;
@@ -48,6 +51,7 @@ public class Ventana {
 	private JTextField txtCantAlim3;
 	private JTextField txtCantAlim4;
 	private JTextField txtCantAlim5;
+	private JTextField txtCantAlim6;
 	private JTextField txtGrasas0;
 	private JTextField txtGSat0;
 	private JTextField txtHCarb0;
@@ -79,18 +83,30 @@ public class Ventana {
 	private JTextField txtSal2;
 	private JTextField txtSal3;
 	private JTextField txtSal4;
-	private JTextField txtCal1;
-	private JTextField txtCal2;
-	private JTextField txtCal3;
-	private JTextField txtCal4;
+	private JTextField txtKCal1;
+	private JTextField txtKCal2;
+	private JTextField txtKCal3;
+	private JTextField txtKCal4;
+	private JTextField txtGrasas5;
+	private JTextField txtGSat5;
+	private JTextField txtHCarb5;
+	private JTextField txtAzucar5;
+	private JTextField txtProt5;
+	private JTextField txtSal5;
+	private JTextField txtKCal5;
 	private JLabel lblgr1;
 	private JLabel lblgr2;
 	private JLabel lblgr3;
 	private JLabel lblgr4;
 	private JLabel lblgr5;
-	private JLabel lblErrorAzucar;
+	private JLabel lblgr6;
+	protected static JComboBox <Alimento> comboNuevosAlimentos;
+	private JButton btnLeyenda;
 	private JTextField txtVerde;
 	private JTextField txtRojo;
+	
+	
+	
 
 		
 	/**
@@ -132,6 +148,7 @@ public class Ventana {
 		cajasResultados.add(new ArrayList<>());
 		cajasResultados.add(new ArrayList<>());
 		cajasResultados.add(new ArrayList<>());
+		cajasResultados.add(new ArrayList<>());
 
 
 		// Creamos los alimentos que introduciremos en el ArrayList
@@ -152,21 +169,13 @@ public class Ventana {
 		alimentosAL.add(patatasBolsa);
 		
 		frmInutritionist = new JFrame();
+		frmInutritionist.getContentPane().setForeground(new Color(255, 255, 255));
 		frmInutritionist.setTitle("iNutritionist");
 		frmInutritionist.getContentPane().setEnabled(false);
 		frmInutritionist.getContentPane().setBackground(new Color(216, 191, 216));
 		frmInutritionist.setBounds(100, 100, 1331, 660);
 		frmInutritionist.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmInutritionist.getContentPane().setLayout(null);
-		
-		
-		JLabel lblErrorSaturadas = new JLabel("");
-		lblErrorSaturadas.setBounds(491, 369, 360, 17);
-		frmInutritionist.getContentPane().add(lblErrorSaturadas);
-		
-		JLabel lblErrorAzucar = new JLabel("");
-		lblErrorAzucar.setBounds(466, 406, 360, 17);
-		frmInutritionist.getContentPane().add(lblErrorAzucar);
 		
 		
 		/**
@@ -187,7 +196,7 @@ public class Ventana {
 		frmInutritionist.getContentPane().add(lblAlimentos);
 		
 		JLabel lblCantidad = new JLabel("Cantidad");
-		lblCantidad.setBounds(253, 66, 51, 17);
+		lblCantidad.setBounds(251, 66, 57, 17);
 		frmInutritionist.getContentPane().add(lblCantidad);
 		
 		
@@ -237,6 +246,14 @@ public class Ventana {
 		frmInutritionist.getContentPane().add(txtCantAlim5);
 		cajasCantidades.add(txtCantAlim5);
 
+		txtCantAlim6 = new JTextField();
+		txtCantAlim6.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim6.setText("0");
+		txtCantAlim6.setBounds(241, 326, 67, 20);
+		frmInutritionist.getContentPane().add(txtCantAlim6);
+		txtCantAlim6.setColumns(10);
+		cajasCantidades.add(txtCantAlim6);
+		
 		JLabel lblAlimento1 = new JLabel("");
 		lblAlimento1.setBounds(100, 107, 131, 17);
 		frmInutritionist.getContentPane().add(lblAlimento1);
@@ -273,7 +290,7 @@ public class Ventana {
 		frmInutritionist.getContentPane().add(lblGrasas);
 		
 		JLabel lblGsaturadas = new JLabel("G.Saturadas");
-		lblGsaturadas.setBounds(511, 66, 94, 17);
+		lblGsaturadas.setBounds(505, 66, 73, 17);
 		frmInutritionist.getContentPane().add(lblGsaturadas);
 		
 		JLabel lblHidratosCarbono = new JLabel("H. Carbono");
@@ -293,14 +310,14 @@ public class Ventana {
 		frmInutritionist.getContentPane().add(lblSal);
 		
 		JLabel lblKiloCalorias = new JLabel("KiloCalorias");
-		lblKiloCalorias.setBounds(1205, 66, 60, 17);
+		lblKiloCalorias.setBounds(1204, 66, 73, 17);
 		frmInutritionist.getContentPane().add(lblKiloCalorias);
 		
 		JLabel lblCantidadesIngeridas = new JLabel("Valores nutricionales");
 		lblCantidadesIngeridas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCantidadesIngeridas.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCantidadesIngeridas.setForeground(new Color(0, 0, 0));
-		lblCantidadesIngeridas.setBounds(562, 22, 199, 17);
+		lblCantidadesIngeridas.setForeground(new Color(123, 104, 238));
+		lblCantidadesIngeridas.setBounds(562, 22, 199, 21);
 		frmInutritionist.getContentPane().add(lblCantidadesIngeridas);
 
 		/**
@@ -441,15 +458,15 @@ public class Ventana {
 		//Se anade al ArrayList
 		cajasResultados.get(1).add(txtSal1);
 		
-		txtCal1 = new JTextField();
-		txtCal1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		txtCal1.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCal1.setEditable(false);
-		txtCal1.setColumns(10);
-		txtCal1.setBounds(1205, 147, 60, 21);
-		frmInutritionist.getContentPane().add(txtCal1);
+		txtKCal1 = new JTextField();
+		txtKCal1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtKCal1.setHorizontalAlignment(SwingConstants.CENTER);
+		txtKCal1.setEditable(false);
+		txtKCal1.setColumns(10);
+		txtKCal1.setBounds(1205, 147, 60, 21);
+		frmInutritionist.getContentPane().add(txtKCal1);
 		//Se anade al ArrayList
-		cajasResultados.get(1).add(txtCal1);
+		cajasResultados.get(1).add(txtKCal1);
 		
 		// FIN FILA 2 ///////////////////////////////////////////////////////////////////////////////
 		
@@ -515,15 +532,15 @@ public class Ventana {
 		//Se anade al ArrayList
 		cajasResultados.get(2).add(txtSal2);
 		
-		txtCal2 = new JTextField();
-		txtCal2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		txtCal2.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCal2.setEditable(false);
-		txtCal2.setColumns(10);
-		txtCal2.setBounds(1205, 190, 60, 21);
-		frmInutritionist.getContentPane().add(txtCal2);
+		txtKCal2 = new JTextField();
+		txtKCal2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtKCal2.setHorizontalAlignment(SwingConstants.CENTER);
+		txtKCal2.setEditable(false);
+		txtKCal2.setColumns(10);
+		txtKCal2.setBounds(1205, 190, 60, 21);
+		frmInutritionist.getContentPane().add(txtKCal2);
 		//Se anade al ArrayList
-		cajasResultados.get(2).add(txtCal2);
+		cajasResultados.get(2).add(txtKCal2);
 		
 		// FIN FILA 3 ///////////////////////////////////////////////////////////////////////////////
 		
@@ -589,15 +606,15 @@ public class Ventana {
 		//Se anade al ArrayList
 		cajasResultados.get(3).add(txtSal3);
 		
-		txtCal3 = new JTextField();
-		txtCal3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		txtCal3.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCal3.setEditable(false);
-		txtCal3.setColumns(10);
-		txtCal3.setBounds(1205, 234, 60, 21);
-		frmInutritionist.getContentPane().add(txtCal3);
+		txtKCal3 = new JTextField();
+		txtKCal3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtKCal3.setHorizontalAlignment(SwingConstants.CENTER);
+		txtKCal3.setEditable(false);
+		txtKCal3.setColumns(10);
+		txtKCal3.setBounds(1205, 234, 60, 21);
+		frmInutritionist.getContentPane().add(txtKCal3);
 		//Se anade al ArrayList
-		cajasResultados.get(3).add(txtCal3);
+		cajasResultados.get(3).add(txtKCal3);
 		
 		// FIN FILA 4 ///////////////////////////////////////////////////////////////////////////////
 		
@@ -618,7 +635,7 @@ public class Ventana {
 		txtGSat4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat4.setEditable(false);
 		txtGSat4.setColumns(10);
-		txtGSat4.setBounds(505, 278, 60, 21);
+		txtGSat4.setBounds(505, 280, 60, 21);
 		frmInutritionist.getContentPane().add(txtGSat4);
 		//Se anade al ArrayList
 		cajasResultados.get(4).add(txtGSat4);
@@ -663,58 +680,147 @@ public class Ventana {
 		//Se anade al ArrayList
 		cajasResultados.get(4).add(txtSal4);
 		
-		txtCal4 = new JTextField();
-		txtCal4.setFont(new Font("Tahoma", Font.BOLD, 11));
-		txtCal4.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCal4.setEditable(false);
-		txtCal4.setColumns(10);
-		txtCal4.setBounds(1206, 280, 60, 21);
-		frmInutritionist.getContentPane().add(txtCal4);
+		txtKCal4 = new JTextField();
+		txtKCal4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtKCal4.setHorizontalAlignment(SwingConstants.CENTER);
+		txtKCal4.setEditable(false);
+		txtKCal4.setColumns(10);
+		txtKCal4.setBounds(1206, 280, 60, 21);
+		frmInutritionist.getContentPane().add(txtKCal4);
 		//Se anade al ArrayList
-		cajasResultados.get(4).add(txtCal4);
+		cajasResultados.get(4).add(txtKCal4);
 
+		// FIN FILA 5 /////////////////////////////////////////////////////////////////
+
+		// FILA 6 
+		
+		txtGrasas5 = new JTextField();
+		txtGrasas5.setEditable(false);
+		txtGrasas5.setBounds(365, 326, 60, 20);
+		frmInutritionist.getContentPane().add(txtGrasas5);
+		txtGrasas5.setColumns(10);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtGrasas5);
+		
+		txtGSat5 = new JTextField();
+		txtGSat5.setEditable(false);
+		txtGSat5.setBounds(505, 326, 60, 20);
+		frmInutritionist.getContentPane().add(txtGSat5);
+		txtGSat5.setColumns(10);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtGSat5);
+		
+		txtHCarb5 = new JTextField();
+		txtHCarb5.setEditable(false);
+		txtHCarb5.setColumns(10);
+		txtHCarb5.setBounds(645, 326, 60, 20);
+		frmInutritionist.getContentPane().add(txtHCarb5);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtHCarb5);
+		
+		txtAzucar5 = new JTextField();
+		txtAzucar5.setEditable(false);
+		txtAzucar5.setColumns(10);
+		txtAzucar5.setBounds(785, 326, 60, 20);
+		frmInutritionist.getContentPane().add(txtAzucar5);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtAzucar5);
+		
+		txtProt5 = new JTextField();
+		txtProt5.setEditable(false);
+		txtProt5.setColumns(10);
+		txtProt5.setBounds(925, 329, 60, 20);
+		frmInutritionist.getContentPane().add(txtProt5);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtProt5);
+		
+		txtSal5 = new JTextField();
+		txtSal5.setEditable(false);
+		txtSal5.setColumns(10);
+		txtSal5.setBounds(1065, 329, 60, 20);
+		frmInutritionist.getContentPane().add(txtSal5);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtSal5);
+		
+		txtKCal5 = new JTextField();
+		txtKCal5.setEditable(false);
+		txtKCal5.setColumns(10);
+		txtKCal5.setBounds(1205, 329, 60, 20);
+		frmInutritionist.getContentPane().add(txtKCal5);
+		//Se anade al ArrayList
+		cajasResultados.get(5).add(txtKCal5);
+		
+		// FIN FILA 6 /////////////////////////////////////////////////////////
+		
+		comboNuevosAlimentos = new JComboBox();
+		comboNuevosAlimentos.setEnabled(false);
+		comboNuevosAlimentos.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				txtCantAlim6.setText("0");
+				for (int i = 0; i < cajasResultados.get(0).size();i++) {
+					cajasResultados.get(5).get(i).setText("");
+					cajasResultados.get(5).get(i).setBackground(new Color(255,255,255));
+				}
+				/**
+				 * Comprobamos que el objeto seleccionado en el combobox sea de la clase alimento para poder trabajar con el
+				 */
+				if (comboNuevosAlimentos.getSelectedItem() instanceof Alimento) {
+					if (comboNuevosAlimentos.getItemCount() == 1) {
+						alimentosAL.add((Alimento)comboNuevosAlimentos.getSelectedItem());
+					}else {
+						alimentosAL.set(5,(Alimento)comboNuevosAlimentos.getSelectedItem());
+					}
+				}
+
+			}
+		});
+		comboNuevosAlimentos.setEditable(true);
+		comboNuevosAlimentos.setSelectedIndex(-1);
+		comboNuevosAlimentos.setBounds(100, 325, 125, 22);
+		frmInutritionist.getContentPane().add(comboNuevosAlimentos);
+	
+		
 		/**
-		 * Aquí tenemos el botón y las acciones que desencadena
+		 * Aqui tenemos el boton y las acciones que desencadena
 		 */
 		
 		JButton btnValidarDieta = new JButton("Validar dieta");
 		btnValidarDieta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				
 				/**
 				 * Controlamos que las cajas de texto solo tengan numeros manejando la excepcion
 				 */
 				try {
-					/**
-					 * Aqui comprobamos que las cantidades son adecuadas nutricionalmente o no y coloreamos las cajas
-					 */
-					double treintaPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*30.0)/100.0);
-					System.out.println(treintaPorCienIngCalorica);
-					double diezPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*10)/100);
-					System.out.println(diezPorCienIngCalorica);
-					System.out.println(calcularGrasasTotales(alimentosAL));
-					boolean valoresSaludables = calcularGrasasTotales(alimentosAL)< treintaPorCienIngCalorica && calcularAzucarTotal(alimentosAL)< diezPorCienIngCalorica && (calcularSalTotal(alimentosAL) < 5);
-					for (int i= 0; i < cajasResultados.size(); i++) {
-						if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-							for (int j = 0; j < cajasResultados.get(i).size(); j++) {
-								if (valoresSaludables) {
-									cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));
-								}else {
-									{
-										cajasResultados.get(i).get(j).setBackground(new Color(255,0,0));
+						double treintaPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*30.0)/100.0);
+						
+						double diezPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*10)/100);
+						
+						/**
+						 * Aqui comprobamos que las cantidades son adecuadas nutricionalmente o no y coloreamos las cajas
+						 */
+						boolean valoresSaludables = calcularGrasasTotales(alimentosAL)< treintaPorCienIngCalorica && calcularAzucarTotal(alimentosAL)< diezPorCienIngCalorica && (calcularSalTotal(alimentosAL) < 5);
+						for (int i= 0; i < cajasResultados.size(); i++) {
+							if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
+								for (int j = 0; j < cajasResultados.get(i).size(); j++) {
+									if (valoresSaludables) {
+										cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));
+									}else {
+										{
+											cajasResultados.get(i).get(j).setBackground(new Color(255,0,0));
+										}
+										
 									}
-									
 								}
 							}
 						}
+						
+						/**
+						 * Aqui llamamos al metodo que realiza todos los calculos
+						 */
+						calcularValoresNutricionales(alimentosAL);
 					}
-					
-					/**
-					 * Aqui llamamos al metodo que realiza todos los cálculos
-					 */
-					calcularValoresNutricionales(alimentosAL);
-					
-				}
 
 				catch (NumberFormatException e1){
 					JOptionPane.showMessageDialog(frmInutritionist, "Solo numeros admitidos!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -746,29 +852,29 @@ public class Ventana {
 		lblgr5.setBounds(319, 282, 18, 17);
 		frmInutritionist.getContentPane().add(lblgr5);
 		
-		txtVerde = new JTextField();
-		txtVerde.setBackground(Color.GREEN);
-		txtVerde.setEditable(false);
-		txtVerde.setEnabled(false);
-		txtVerde.setBounds(23, 551, 37, 20);
-		frmInutritionist.getContentPane().add(txtVerde);
-		txtVerde.setColumns(10);
+		lblgr6 = new JLabel("g");
+		lblgr6.setBounds(318, 329, 18, 17);
+		frmInutritionist.getContentPane().add(lblgr6);
 		
-		txtRojo = new JTextField();
-		txtRojo.setBackground(Color.RED);
-		txtRojo.setEditable(false);
-		txtRojo.setEnabled(false);
-		txtRojo.setColumns(10);
-		txtRojo.setBounds(23, 577, 37, 20);
-		frmInutritionist.getContentPane().add(txtRojo);
-		
-		JLabel lblCorrectoValores = new JLabel("Est\u00E1 dentro de los valores nutricionales saludables");
-		lblCorrectoValores.setBounds(70, 554, 325, 14);
+		JLabel lblCorrectoValores = new JLabel("");
+		lblCorrectoValores.setBounds(190, 555, 325, 14);
 		frmInutritionist.getContentPane().add(lblCorrectoValores);
 		
-		JLabel lblIncorrectoValores = new JLabel("No est\u00E1 dentro de los valores nutricionales saludables");
-		lblIncorrectoValores.setBounds(70, 580, 325, 14);
+		JLabel lblIncorrectoValores = new JLabel("");
+		lblIncorrectoValores.setBounds(190, 581, 325, 14);
 		frmInutritionist.getContentPane().add(lblIncorrectoValores);
+		
+		txtVerde = new JTextField();
+		txtVerde.setBounds(148, 550, 25, 20);
+		frmInutritionist.getContentPane().add(txtVerde);
+		txtVerde.setColumns(10);
+		txtVerde.setVisible(false);
+		
+		txtRojo = new JTextField();
+		txtRojo.setBounds(148, 576, 25, 20);
+		frmInutritionist.getContentPane().add(txtRojo);
+		txtRojo.setColumns(10);
+		txtRojo.setVisible(false);
 		
 		JButton btnAyuda = new JButton("?");	
 		btnAyuda.setBackground(new Color(255, 255, 255));
@@ -779,19 +885,67 @@ public class Ventana {
 		btnAyuda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(frmInutritionist, "Seleccione que alimentos consume, indique cuanta cantidad y pulse el bot�n", "Help", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frmInutritionist, "Seleccione que alimentos consume, indique cuanta cantidad y pulse el boton", "Help", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnAyuda.setBounds(1259, 576, 46, 22);
 		frmInutritionist.getContentPane().add(btnAyuda);
 		
+		JButton btnAnadirAlimento = new JButton("A\u00F1adir Alimento");
+		btnAnadirAlimento.setForeground(new Color(255, 255, 255));
+		btnAnadirAlimento.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnAnadirAlimento.setBackground(new Color(147, 112, 219));
+		btnAnadirAlimento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaAnadirAlimento ven = new VentanaAnadirAlimento();
+				ven.frmAnadirAlimento.setVisible(true);
+			}
+		});
+		btnAnadirAlimento.setBounds(158, 381, 131, 23);
+		frmInutritionist.getContentPane().add(btnAnadirAlimento);
+		
+		
+		/***
+		 * Boton para mostrar la leyenda de colores
+		 */
+		btnLeyenda = new JButton("Leyenda");
+		btnLeyenda.setBackground(new Color(255, 255, 255));
+		btnLeyenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (lblCorrectoValores.getText().equals("") && lblIncorrectoValores.getText().equals("")) {
+					txtVerde.setVisible(true);
+					txtVerde.setBackground(new Color(0,255,0));
+					lblCorrectoValores.setText("Dentro de los valores nutricionales recomendados");
+					txtRojo.setVisible(true);
+					txtRojo.setBackground(new Color(255,0,0));
+					lblIncorrectoValores.setText("Fuera de los valores nutricionales recomendados");
+				}else {
+					txtVerde.setVisible(false);
+					lblCorrectoValores.setText("");
+					txtRojo.setVisible(false);
+					lblIncorrectoValores.setText("");
+				}
+				
+				
+			}
+		});
+		btnLeyenda.setBounds(10, 577, 89, 23);
+		frmInutritionist.getContentPane().add(btnLeyenda);
+		
+		
+		
+		
+		
+			
 	}
 	
-	/**
+	/***
 	 * Metodo para calcular los valores nutricionales
+	 * @param alimentos
 	 */
 	private void calcularValoresNutricionales (ArrayList<Alimento> alimentos)
 	{				
+		
 		for (int i=0; i< cajasCantidades.size(); i++)
 		{		
 			if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
@@ -846,7 +1000,11 @@ public class Ventana {
 		}	
 	}
 
-	// Metodo para calcular la ingesta calorica total
+	/**
+	 *  Metodo para calcular la ingesta calorica total
+	 * @param alimentos
+	 * @return
+	 */
 	private static double calcularIngestaCalorica(ArrayList <Alimento> alimentos) {
 		double totalKCal=0;
 		for (int i=0;i<alimentos.size();i++) {
@@ -860,6 +1018,8 @@ public class Ventana {
 
 	/**
 	 *  Metodo para calcular las grasas totales
+	 * @param alimentos
+	 * @return
 	 */
 	private static double calcularGrasasTotales(ArrayList <Alimento> alimentos) {
 		double totalGrasas=0;
@@ -872,8 +1032,10 @@ public class Ventana {
 		return totalGrasas;
 	}
 
-	/**
+	/***
 	 * Metodo para calcular el azucar total
+	 * @param alimentos
+	 * @return
 	 */
 	private static double calcularAzucarTotal(ArrayList <Alimento> alimentos) {
 		double totalAzucar=0;
@@ -886,8 +1048,10 @@ public class Ventana {
 		return totalAzucar;
 	}
 
-	/**
-	 * Metodo para calcular la sal total
+	/***
+	 * Metodo para calcular la sal
+	 * @param alimentos
+	 * @return
 	 */
 	private static double calcularSalTotal(ArrayList <Alimento> alimentos) {
 		double totalSal=0;
@@ -899,5 +1063,4 @@ public class Ventana {
 		}
 		return totalSal;
 	}
-	
 }
