@@ -164,7 +164,7 @@ public class VentanaAnadirAlimento {
 				}
 
 				catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(frmAnadirAlimento, "No pueden quedar campos vacíos", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(frmAnadirAlimento, "No pueden quedar campos vacíos y no se pueden introducir letras", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

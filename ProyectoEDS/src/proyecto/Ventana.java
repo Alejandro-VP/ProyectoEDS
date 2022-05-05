@@ -2,7 +2,6 @@ package proyecto;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -326,6 +325,7 @@ public class Ventana {
 		
 		// FILA 1
 		txtGrasas0 = new JTextField();
+		txtGrasas0.setForeground(Color.WHITE);
 		txtGrasas0.setEditable(false);
 		txtGrasas0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGrasas0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -336,6 +336,7 @@ public class Ventana {
 		cajasResultados.get(0).add(txtGrasas0);
 		
 		txtGSat0 = new JTextField();
+		txtGSat0.setForeground(Color.WHITE);
 		txtGSat0.setEditable(false);
 		txtGSat0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGSat0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -346,6 +347,7 @@ public class Ventana {
 		cajasResultados.get(0).add(txtGSat0);
 		
 		txtHCarb0 = new JTextField();
+		txtHCarb0.setForeground(Color.WHITE);
 		txtHCarb0.setEditable(false);
 		txtHCarb0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtHCarb0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -356,6 +358,7 @@ public class Ventana {
 		cajasResultados.get(0).add(txtHCarb0);
 		
 		txtAzucar0 = new JTextField();
+		txtAzucar0.setForeground(Color.WHITE);
 		txtAzucar0.setEditable(false);
 		txtAzucar0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtAzucar0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -366,6 +369,7 @@ public class Ventana {
 		cajasResultados.get(0).add(txtAzucar0);
 		
 		txtProt0 = new JTextField();
+		txtProt0.setForeground(Color.WHITE);
 		txtProt0.setEditable(false);
 		txtProt0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtProt0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -376,6 +380,7 @@ public class Ventana {
 		cajasResultados.get(0).add(txtProt0);
 		
 		txtSal0 = new JTextField();
+		txtSal0.setForeground(Color.WHITE);
 		txtSal0.setEditable(false);
 		txtSal0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtSal0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -386,6 +391,7 @@ public class Ventana {
 		cajasResultados.get(0).add(txtSal0);
 		
 		txtKCal0 = new JTextField();
+		txtKCal0.setForeground(Color.WHITE);
 		txtKCal0.setEditable(false);
 		txtKCal0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtKCal0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -399,6 +405,7 @@ public class Ventana {
 		
 		// FILA 2
 		txtGrasas1 = new JTextField();
+		txtGrasas1.setForeground(Color.WHITE);
 		txtGrasas1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGrasas1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas1.setEditable(false);
@@ -409,6 +416,7 @@ public class Ventana {
 		cajasResultados.get(1).add(txtGrasas1);
 		
 		txtGSat1 = new JTextField();
+		txtGSat1.setForeground(Color.WHITE);
 		txtGSat1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGSat1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat1.setEditable(false);
@@ -419,6 +427,7 @@ public class Ventana {
 		cajasResultados.get(1).add(txtGSat1);
 		
 		txtHCarb1 = new JTextField();
+		txtHCarb1.setForeground(Color.WHITE);
 		txtHCarb1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtHCarb1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb1.setEditable(false);
@@ -429,6 +438,7 @@ public class Ventana {
 		cajasResultados.get(1).add(txtHCarb1);
 		
 		txtAzucar1 = new JTextField();
+		txtAzucar1.setForeground(Color.WHITE);
 		txtAzucar1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtAzucar1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar1.setEditable(false);
@@ -439,6 +449,7 @@ public class Ventana {
 		cajasResultados.get(1).add(txtAzucar1);
 		
 		txtProt1 = new JTextField();
+		txtProt1.setForeground(Color.WHITE);
 		txtProt1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtProt1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt1.setEditable(false);
@@ -449,6 +460,7 @@ public class Ventana {
 		cajasResultados.get(1).add(txtProt1);
 		
 		txtSal1 = new JTextField();
+		txtSal1.setForeground(Color.WHITE);
 		txtSal1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtSal1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal1.setEditable(false);
@@ -459,6 +471,7 @@ public class Ventana {
 		cajasResultados.get(1).add(txtSal1);
 		
 		txtKCal1 = new JTextField();
+		txtKCal1.setForeground(Color.WHITE);
 		txtKCal1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtKCal1.setHorizontalAlignment(SwingConstants.CENTER);
 		txtKCal1.setEditable(false);
@@ -473,6 +486,7 @@ public class Ventana {
 		// FILA 3
 		
 		txtGrasas2 = new JTextField();
+		txtGrasas2.setForeground(Color.WHITE);
 		txtGrasas2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGrasas2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas2.setEditable(false);
@@ -483,6 +497,7 @@ public class Ventana {
 		cajasResultados.get(2).add(txtGrasas2);
 		
 		txtGSat2 = new JTextField();
+		txtGSat2.setForeground(Color.WHITE);
 		txtGSat2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGSat2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat2.setEditable(false);
@@ -493,6 +508,7 @@ public class Ventana {
 		cajasResultados.get(2).add(txtGSat2);
 		
 		txtHCarb2 = new JTextField();
+		txtHCarb2.setForeground(Color.WHITE);
 		txtHCarb2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtHCarb2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb2.setEditable(false);
@@ -503,6 +519,7 @@ public class Ventana {
 		cajasResultados.get(2).add(txtHCarb2);
 		
 		txtAzucar2 = new JTextField();
+		txtAzucar2.setForeground(Color.WHITE);
 		txtAzucar2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtAzucar2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar2.setEditable(false);
@@ -513,6 +530,7 @@ public class Ventana {
 		cajasResultados.get(2).add(txtAzucar2);
 		
 		txtProt2 = new JTextField();
+		txtProt2.setForeground(Color.WHITE);
 		txtProt2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtProt2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt2.setEditable(false);
@@ -523,6 +541,7 @@ public class Ventana {
 		cajasResultados.get(2).add(txtProt2);
 		
 		txtSal2 = new JTextField();
+		txtSal2.setForeground(Color.WHITE);
 		txtSal2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtSal2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal2.setEditable(false);
@@ -533,6 +552,7 @@ public class Ventana {
 		cajasResultados.get(2).add(txtSal2);
 		
 		txtKCal2 = new JTextField();
+		txtKCal2.setForeground(Color.WHITE);
 		txtKCal2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtKCal2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtKCal2.setEditable(false);
@@ -547,6 +567,7 @@ public class Ventana {
 		// FILA 4
 		
 		txtGrasas3 = new JTextField();
+		txtGrasas3.setForeground(Color.WHITE);
 		txtGrasas3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGrasas3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas3.setEditable(false);
@@ -557,6 +578,7 @@ public class Ventana {
 		cajasResultados.get(3).add(txtGrasas3);
 		
 		txtGSat3 = new JTextField();
+		txtGSat3.setForeground(Color.WHITE);
 		txtGSat3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGSat3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat3.setEditable(false);
@@ -567,6 +589,7 @@ public class Ventana {
 		cajasResultados.get(3).add(txtGSat3);
 		
 		txtHCarb3 = new JTextField();
+		txtHCarb3.setForeground(Color.WHITE);
 		txtHCarb3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtHCarb3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb3.setEditable(false);
@@ -577,6 +600,7 @@ public class Ventana {
 		cajasResultados.get(3).add(txtHCarb3);
 		
 		txtAzucar3 = new JTextField();
+		txtAzucar3.setForeground(Color.WHITE);
 		txtAzucar3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtAzucar3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar3.setEditable(false);
@@ -587,6 +611,7 @@ public class Ventana {
 		cajasResultados.get(3).add(txtAzucar3);
 		
 		txtProt3 = new JTextField();
+		txtProt3.setForeground(Color.WHITE);
 		txtProt3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtProt3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt3.setEditable(false);
@@ -597,6 +622,7 @@ public class Ventana {
 		cajasResultados.get(3).add(txtProt3);
 		
 		txtSal3 = new JTextField();
+		txtSal3.setForeground(Color.WHITE);
 		txtSal3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtSal3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal3.setEditable(false);
@@ -607,6 +633,7 @@ public class Ventana {
 		cajasResultados.get(3).add(txtSal3);
 		
 		txtKCal3 = new JTextField();
+		txtKCal3.setForeground(Color.WHITE);
 		txtKCal3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtKCal3.setHorizontalAlignment(SwingConstants.CENTER);
 		txtKCal3.setEditable(false);
@@ -621,6 +648,7 @@ public class Ventana {
 		// FILA 5
 	
 		txtGrasas4 = new JTextField();
+		txtGrasas4.setForeground(Color.WHITE);
 		txtGrasas4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGrasas4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas4.setEditable(false);
@@ -631,6 +659,7 @@ public class Ventana {
 		cajasResultados.get(4).add(txtGrasas4);
 		
 		txtGSat4 = new JTextField();
+		txtGSat4.setForeground(Color.WHITE);
 		txtGSat4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGSat4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat4.setEditable(false);
@@ -641,6 +670,7 @@ public class Ventana {
 		cajasResultados.get(4).add(txtGSat4);
 		
 		txtHCarb4 = new JTextField();
+		txtHCarb4.setForeground(Color.WHITE);
 		txtHCarb4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtHCarb4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb4.setEditable(false);
@@ -651,6 +681,7 @@ public class Ventana {
 		cajasResultados.get(4).add(txtHCarb4);
 		
 		txtAzucar4 = new JTextField();
+		txtAzucar4.setForeground(Color.WHITE);
 		txtAzucar4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtAzucar4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar4.setEditable(false);
@@ -661,6 +692,7 @@ public class Ventana {
 		cajasResultados.get(4).add(txtAzucar4);
 		
 		txtProt4 = new JTextField();
+		txtProt4.setForeground(Color.WHITE);
 		txtProt4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtProt4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt4.setEditable(false);
@@ -671,6 +703,7 @@ public class Ventana {
 		cajasResultados.get(4).add(txtProt4);
 		
 		txtSal4 = new JTextField();
+		txtSal4.setForeground(Color.WHITE);
 		txtSal4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtSal4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal4.setEditable(false);
@@ -681,6 +714,7 @@ public class Ventana {
 		cajasResultados.get(4).add(txtSal4);
 		
 		txtKCal4 = new JTextField();
+		txtKCal4.setForeground(Color.WHITE);
 		txtKCal4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtKCal4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtKCal4.setEditable(false);
@@ -695,6 +729,9 @@ public class Ventana {
 		// FILA 6 
 		
 		txtGrasas5 = new JTextField();
+		txtGrasas5.setForeground(Color.WHITE);
+		txtGrasas5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtGrasas5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGrasas5.setEditable(false);
 		txtGrasas5.setBounds(365, 326, 60, 20);
 		frmInutritionist.getContentPane().add(txtGrasas5);
@@ -703,6 +740,9 @@ public class Ventana {
 		cajasResultados.get(5).add(txtGrasas5);
 		
 		txtGSat5 = new JTextField();
+		txtGSat5.setForeground(Color.WHITE);
+		txtGSat5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtGSat5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtGSat5.setEditable(false);
 		txtGSat5.setBounds(505, 326, 60, 20);
 		frmInutritionist.getContentPane().add(txtGSat5);
@@ -711,6 +751,9 @@ public class Ventana {
 		cajasResultados.get(5).add(txtGSat5);
 		
 		txtHCarb5 = new JTextField();
+		txtHCarb5.setForeground(Color.WHITE);
+		txtHCarb5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtHCarb5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHCarb5.setEditable(false);
 		txtHCarb5.setColumns(10);
 		txtHCarb5.setBounds(645, 326, 60, 20);
@@ -719,6 +762,9 @@ public class Ventana {
 		cajasResultados.get(5).add(txtHCarb5);
 		
 		txtAzucar5 = new JTextField();
+		txtAzucar5.setForeground(Color.WHITE);
+		txtAzucar5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtAzucar5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAzucar5.setEditable(false);
 		txtAzucar5.setColumns(10);
 		txtAzucar5.setBounds(785, 326, 60, 20);
@@ -727,6 +773,9 @@ public class Ventana {
 		cajasResultados.get(5).add(txtAzucar5);
 		
 		txtProt5 = new JTextField();
+		txtProt5.setForeground(Color.WHITE);
+		txtProt5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtProt5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProt5.setEditable(false);
 		txtProt5.setColumns(10);
 		txtProt5.setBounds(925, 329, 60, 20);
@@ -735,6 +784,9 @@ public class Ventana {
 		cajasResultados.get(5).add(txtProt5);
 		
 		txtSal5 = new JTextField();
+		txtSal5.setForeground(Color.WHITE);
+		txtSal5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtSal5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSal5.setEditable(false);
 		txtSal5.setColumns(10);
 		txtSal5.setBounds(1065, 329, 60, 20);
@@ -743,6 +795,9 @@ public class Ventana {
 		cajasResultados.get(5).add(txtSal5);
 		
 		txtKCal5 = new JTextField();
+		txtKCal5.setForeground(Color.WHITE);
+		txtKCal5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtKCal5.setHorizontalAlignment(SwingConstants.CENTER);
 		txtKCal5.setEditable(false);
 		txtKCal5.setColumns(10);
 		txtKCal5.setBounds(1205, 329, 60, 20);
@@ -787,40 +842,56 @@ public class Ventana {
 		JButton btnValidarDieta = new JButton("Validar dieta");
 		btnValidarDieta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
+
 				/**
 				 * Controlamos que las cajas de texto solo tengan numeros manejando la excepcion
 				 */
 				try {
+					if (comboNuevosAlimentos.getSelectedItem() == null){
+						JOptionPane.showMessageDialog(frmInutritionist, "No has seleccionado nada en la lista", "Error", JOptionPane.ERROR_MESSAGE);
+					}else {
 						double treintaPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*30.0)/100.0);
-						
+
 						double diezPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*10)/100);
-						
+
 						/**
 						 * Aqui comprobamos que las cantidades son adecuadas nutricionalmente o no y coloreamos las cajas
 						 */
-						boolean valoresSaludables = calcularGrasasTotales(alimentosAL)< treintaPorCienIngCalorica && calcularAzucarTotal(alimentosAL)< diezPorCienIngCalorica && (calcularSalTotal(alimentosAL) < 5);
+						boolean valoresSaludables = calcularGrasasTotales(alimentosAL) < treintaPorCienIngCalorica && calcularAzucarTotal(alimentosAL) < diezPorCienIngCalorica && (calcularSalTotal(alimentosAL) < 5);
+
 						for (int i= 0; i < cajasResultados.size(); i++) {
 							if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
 								for (int j = 0; j < cajasResultados.get(i).size(); j++) {
 									if (valoresSaludables) {
 										cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));
-									}else {
-										{
-											cajasResultados.get(i).get(j).setBackground(new Color(255,0,0));
-										}
-										
 									}
+									if (calcularGrasasTotales(alimentosAL) > treintaPorCienIngCalorica){
+
+										cajasResultados.get(i).get(0).setBackground(new Color(255,0,0));
+										cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));
+									}
+									if (calcularAzucarTotal(alimentosAL) > diezPorCienIngCalorica) {
+
+										cajasResultados.get(i).get(3).setBackground(new Color(255,0,0));
+										cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));
+									} 
+									if ((calcularSalTotal(alimentosAL) >= 5)) {
+
+										cajasResultados.get(i).get(5).setBackground(new Color(255,0,0));
+										cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));										
+									}			
 								}
 							}
 						}
-						
+
 						/**
 						 * Aqui llamamos al metodo que realiza todos los calculos
 						 */
 						calcularValoresNutricionales(alimentosAL);
 					}
+
+				}
 
 				catch (NumberFormatException e1){
 					JOptionPane.showMessageDialog(frmInutritionist, "Solo numeros admitidos!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -865,12 +936,16 @@ public class Ventana {
 		frmInutritionist.getContentPane().add(lblIncorrectoValores);
 		
 		txtVerde = new JTextField();
+		txtVerde.setEditable(false);
+		txtVerde.setEnabled(false);
 		txtVerde.setBounds(148, 550, 25, 20);
 		frmInutritionist.getContentPane().add(txtVerde);
 		txtVerde.setColumns(10);
 		txtVerde.setVisible(false);
 		
 		txtRojo = new JTextField();
+		txtRojo.setEditable(false);
+		txtRojo.setEnabled(false);
 		txtRojo.setBounds(148, 576, 25, 20);
 		frmInutritionist.getContentPane().add(txtRojo);
 		txtRojo.setColumns(10);
@@ -885,7 +960,7 @@ public class Ventana {
 		btnAyuda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(frmInutritionist, "Seleccione que alimentos consume, indique cuanta cantidad y pulse el boton", "Help", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frmInutritionist, "Indique cuanta cantidad de los alimentos consume y pulse el boton", "Help", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnAyuda.setBounds(1259, 576, 46, 22);
