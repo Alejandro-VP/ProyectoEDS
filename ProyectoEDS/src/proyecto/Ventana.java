@@ -143,6 +143,7 @@ public class Ventana {
 		Alimento patatasBolsa = new Alimento("Patatas fritas bolsa", 36, 3, 50, 4, 7, 1, 555);
 		
 		
+		
 		// Llenamos el ArrayList con los Alimentos
 		alimentosAL.add(tomateFrito);
 		alimentosAL.add(chocolate);
@@ -687,26 +688,24 @@ public class Ventana {
 					/**
 					 * Aqui comprobamos que las cantidades son adecuadas nutricionalmente o no y coloreamos las cajas
 					 */
-					if (calcularGrasasTotales(alimentosAL)<(calcularIngestaCalorica(alimentosAL)*30/100) && calcularAzucarTotal(alimentosAL)<(calcularIngestaCalorica(alimentosAL)*10/100) && (calcularSalTotal(alimentosAL) < 5)) {
-						for (int i = 0; i < cajasResultados.size(); i++) {
-							
-							if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-								for (int j = 0; j < cajasResultados.get(i).size(); j++) {
+					double treintaPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*30.0)/100.0);
+					System.out.println(treintaPorCienIngCalorica);
+					double diezPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*10)/100);
+					System.out.println(diezPorCienIngCalorica);
+					System.out.println(calcularGrasasTotales(alimentosAL));
+					boolean valoresSaludables = calcularGrasasTotales(alimentosAL)< treintaPorCienIngCalorica && calcularAzucarTotal(alimentosAL)< diezPorCienIngCalorica && (calcularSalTotal(alimentosAL) < 5);
+					for (int i= 0; i < cajasResultados.size(); i++) {
+						if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
+							for (int j = 0; j < cajasResultados.get(i).size(); j++) {
+								if (valoresSaludables) {
 									cajasResultados.get(i).get(j).setBackground(new Color(0,255,0));
-								}
-							}else {
-								JOptionPane.showMessageDialog(frmInutritionist, "No se admiten números negativos", "Error", JOptionPane.ERROR_MESSAGE);
-							}
-						}
-					}
-					else {
-						for (int i = 0; i < cajasResultados.size(); i++) {
-							if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-								for (int j = 0; j < cajasResultados.get(i).size(); j++) {
-									cajasResultados.get(i).get(j).setBackground(new Color(255,0,0));
+								}else {
+									{
+										cajasResultados.get(i).get(j).setBackground(new Color(255,0,0));
+									}
+									
 								}
 							}
-							
 						}
 					}
 					
@@ -715,7 +714,6 @@ public class Ventana {
 					 */
 					calcularValoresNutricionales(alimentosAL);
 					
-					System.out.println(calcularSalTotal(alimentosAL));
 				}
 
 				catch (NumberFormatException e1){
@@ -853,7 +851,8 @@ public class Ventana {
 		double totalKCal=0;
 		for (int i=0;i<alimentos.size();i++) {
 			if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-				totalKCal+=alimentos.get(i).getKiloCalorias();
+				totalKCal+=alimentos.get(i).getKiloCalorias()*(Double.valueOf(cajasCantidades.get(i).getText())/100);
+				
 			}
 		}
 		return totalKCal;
@@ -866,7 +865,8 @@ public class Ventana {
 		double totalGrasas=0;
 		for (int i=0;i<alimentos.size();i++) {
 			if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-				totalGrasas+=alimentos.get(i).getGrasas();
+				totalGrasas+=alimentos.get(i).getGrasas()*(Double.valueOf(cajasCantidades.get(i).getText())/100);
+				
 			}
 		}
 		return totalGrasas;
@@ -879,7 +879,8 @@ public class Ventana {
 		double totalAzucar=0;
 		for (int i=0;i<alimentos.size();i++) {
 			if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-				totalAzucar+=alimentos.get(i).getAzucar();
+				totalAzucar+=alimentos.get(i).getAzucar()*(Double.valueOf(cajasCantidades.get(i).getText())/100);
+			
 			}
 		}
 		return totalAzucar;
@@ -892,7 +893,8 @@ public class Ventana {
 		double totalSal=0;
 		for (int i=0;i<alimentos.size();i++) {
 			if (Double.valueOf(cajasCantidades.get(i).getText()) > 0) {
-				totalSal+=alimentos.get(i).getSal()*Double.valueOf(cajasCantidades.get(i).getText());
+				totalSal+=alimentos.get(i).getSal()*(Double.valueOf(cajasCantidades.get(i).getText())/100);
+				
 			}
 		}
 		return totalSal;
