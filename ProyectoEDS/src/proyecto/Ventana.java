@@ -808,6 +808,7 @@ public class Ventana {
 		// FIN FILA 6 /////////////////////////////////////////////////////////
 		
 		comboNuevosAlimentos = new JComboBox();
+		comboNuevosAlimentos.setBackground(Color.WHITE);
 		comboNuevosAlimentos.setEnabled(false);
 		comboNuevosAlimentos.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {

@@ -62,78 +62,79 @@ public class VentanaAnadirAlimento {
 		frmAnadirAlimento.getContentPane().setBackground(new Color(216, 191, 216));
 
 		JLabel lblNombreAlimento = new JLabel("Nombre:");
-		lblNombreAlimento.setBounds(121, 77, 76, 14);
+		lblNombreAlimento.setBounds(63, 77, 76, 14);
 		frmAnadirAlimento.getContentPane().add(lblNombreAlimento);
 
 		txtRecogerNombre = new JTextField();
-		txtRecogerNombre.setBounds(198, 77, 113, 20);
+		txtRecogerNombre.setBounds(140, 77, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerNombre);
 		txtRecogerNombre.setColumns(10);
 
 		txtRecogerGrasas = new JTextField();
-		txtRecogerGrasas.setBounds(198, 127, 113, 20);
+		txtRecogerGrasas.setBounds(507, 77, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerGrasas);
 		txtRecogerGrasas.setColumns(10);
 
 		txtRecogerGSat = new JTextField();
-		txtRecogerGSat.setBounds(198, 179, 113, 20);
+		txtRecogerGSat.setBounds(140, 127, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerGSat);
 		txtRecogerGSat.setColumns(10);
 
 		txtRecogerHCarb = new JTextField();
-		txtRecogerHCarb.setBounds(198, 238, 113, 20);
+		txtRecogerHCarb.setBounds(507, 127, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerHCarb);
 		txtRecogerHCarb.setColumns(10);
 
 		txtRecogerAzucar = new JTextField();
-		txtRecogerAzucar.setBounds(452, 77, 113, 20);
+		txtRecogerAzucar.setBounds(140, 179, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerAzucar);
 		txtRecogerAzucar.setColumns(10);
 
 		txtRecogerProteinas = new JTextField();
-		txtRecogerProteinas.setBounds(452, 127, 113, 20);
+		txtRecogerProteinas.setBounds(507, 179, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerProteinas);
 		txtRecogerProteinas.setColumns(10);
 
 		txtRecogerSal = new JTextField();
-		txtRecogerSal.setBounds(452, 179, 113, 20);
+		txtRecogerSal.setBounds(140, 238, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerSal);
 		txtRecogerSal.setColumns(10);
 
 		txtRecogerKCal = new JTextField();
-		txtRecogerKCal.setBounds(452, 238, 113, 20);
+		txtRecogerKCal.setBounds(507, 238, 113, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerKCal);
 		txtRecogerKCal.setColumns(10);
 
 		JLabel lblGrasas = new JLabel("Grasas:");
-		lblGrasas.setBounds(121, 130, 76, 14);
+		lblGrasas.setBounds(430, 80, 76, 14);
 		frmAnadirAlimento.getContentPane().add(lblGrasas);
 
 		JLabel lblGSat = new JLabel("G. Saturadas:");
-		lblGSat.setBounds(100, 182, 97, 14);
+		lblGSat.setBounds(42, 130, 97, 14);
 		frmAnadirAlimento.getContentPane().add(lblGSat);
 
 		JLabel lblHidCarb = new JLabel("Hidratos de Carbono:");
-		lblHidCarb.setBounds(70, 241, 127, 14);
+		lblHidCarb.setBounds(379, 130, 127, 14);
 		frmAnadirAlimento.getContentPane().add(lblHidCarb);
 
 		JLabel lblAzucar = new JLabel("Azucar:");
-		lblAzucar.setBounds(382, 77, 73, 14);
+		lblAzucar.setBounds(70, 179, 73, 14);
 		frmAnadirAlimento.getContentPane().add(lblAzucar);
 
 		JLabel lblProteinas = new JLabel("Prote\u00EDnas:");
-		lblProteinas.setBounds(372, 130, 83, 14);
+		lblProteinas.setBounds(427, 182, 83, 14);
 		frmAnadirAlimento.getContentPane().add(lblProteinas);
 
 		JLabel lblSal = new JLabel("Sal:");
-		lblSal.setBounds(397, 182, 58, 14);
+		lblSal.setBounds(85, 241, 58, 14);
 		frmAnadirAlimento.getContentPane().add(lblSal);
 
 		JLabel lblKCal = new JLabel("KCalor\u00EDas:");
-		lblKCal.setBounds(366, 241, 89, 14);
+		lblKCal.setBounds(421, 241, 89, 14);
 		frmAnadirAlimento.getContentPane().add(lblKCal);
 
 		btnGuardar = new JButton("Guardar");
+		btnGuardar.setBackground(Color.WHITE);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -187,5 +188,33 @@ public class VentanaAnadirAlimento {
 		btnAyuda.setBackground(Color.WHITE);
 		btnAyuda.setBounds(625, 369, 46, 22);
 		frmAnadirAlimento.getContentPane().add(btnAyuda);
+		
+		JLabel lblGramosGrasasS = new JLabel("g");
+		lblGramosGrasasS.setBounds(263, 130, 14, 14);
+		frmAnadirAlimento.getContentPane().add(lblGramosGrasasS);
+		
+		JLabel lblGramosAzucar = new JLabel("g");
+		lblGramosAzucar.setBounds(263, 182, 14, 14);
+		frmAnadirAlimento.getContentPane().add(lblGramosAzucar);
+		
+		JLabel lblGramosSal = new JLabel("g");
+		lblGramosSal.setBounds(263, 241, 14, 14);
+		frmAnadirAlimento.getContentPane().add(lblGramosSal);
+		
+		JLabel lblGramosGrasas = new JLabel("g");
+		lblGramosGrasas.setBounds(630, 83, 14, 14);
+		frmAnadirAlimento.getContentPane().add(lblGramosGrasas);
+		
+		JLabel lblGramosHidCarb = new JLabel("g");
+		lblGramosHidCarb.setBounds(630, 130, 14, 14);
+		frmAnadirAlimento.getContentPane().add(lblGramosHidCarb);
+		
+		JLabel lblGramosProteinas = new JLabel("g");
+		lblGramosProteinas.setBounds(630, 182, 14, 14);
+		frmAnadirAlimento.getContentPane().add(lblGramosProteinas);
+		
+		JLabel lblKcalKCalorias = new JLabel("kcal");
+		lblKcalKCalorias.setBounds(630, 241, 37, 14);
+		frmAnadirAlimento.getContentPane().add(lblKcalKCalorias);
 	}
 }
