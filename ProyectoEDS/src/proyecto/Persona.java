@@ -70,8 +70,7 @@ public class Persona {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(216, 191, 216));
-		frame.setBounds(100, 100, 645, 441);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 385, 439);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblSexo = new JLabel("Sexo:");

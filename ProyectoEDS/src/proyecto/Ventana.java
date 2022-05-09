@@ -969,7 +969,7 @@ public class Ventana {
 		
 		JButton btnAnadirAlimento = new JButton("A\u00F1adir Alimento");
 		btnAnadirAlimento.setForeground(new Color(255, 255, 255));
-		btnAnadirAlimento.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnAnadirAlimento.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnAnadirAlimento.setBackground(new Color(147, 112, 219));
 		btnAnadirAlimento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1008,11 +1008,19 @@ public class Ventana {
 		btnLeyenda.setBounds(10, 577, 89, 23);
 		frmInutritionist.getContentPane().add(btnLeyenda);
 		
+		JButton btnEstadisticas = new JButton("<html><body align=center>Estadisticas<br>Personales</body></html>");
+		btnEstadisticas.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btnEstadisticas.setBackground(new Color(0, 0, 255));
+		btnEstadisticas.setForeground(new Color(255, 255, 255));
+		btnEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Persona ventanaPersona = new Persona();
+				ventanaPersona.frame.setVisible(true);
+			}
+		});
+		btnEstadisticas.setBounds(158, 433, 131, 53);
+		frmInutritionist.getContentPane().add(btnEstadisticas);
 		
-		
-		
-		
-			
 	}
 	
 	/***
