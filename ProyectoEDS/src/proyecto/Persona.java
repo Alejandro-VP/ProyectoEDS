@@ -28,6 +28,18 @@ public class Persona {
 	private double actividadFisica;
 	private JTextField txtResultadoIMC;
 	
+	public Persona(double peso, double altura) {
+		this.peso = peso;
+		this.altura = altura;
+	}
+
+	public double getAltura() {
+		return altura;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
 
 	/**
 	 * Launch the application.
@@ -148,10 +160,13 @@ public class Persona {
 		comboActividad.setBounds(115, 162, 93, 22);
 		frame.getContentPane().add(comboActividad);
 		
-		
 		JLabel lblIMC = new JLabel("IMC:");
 		lblIMC.setBounds(10, 209, 46, 14);
 		frame.getContentPane().add(lblIMC);
+		
+		JLabel lblEstadoIMC = new JLabel("");
+		lblEstadoIMC.setBounds(122, 209, 126, 14);
+		frame.getContentPane().add(lblEstadoIMC);
 		
 		JButton btnCalcularIMC = new JButton("Calcular IMC");
 		btnCalcularIMC.setBackground(Color.WHITE);
@@ -168,6 +183,20 @@ public class Persona {
 					altura=Double.valueOf(txtAltura.getText());
 					double resultadoIMC=Math.round((peso/Math.pow(altura, 2))*100.00)/100.00;
 					txtResultadoIMC.setText(Double.toString(resultadoIMC));
+					if (resultadoIMC < 18.5) {
+						lblEstadoIMC.setText("Peso insuficiente");
+						lblEstadoIMC.setForeground(new Color(220,20,60));
+					}else if (resultadoIMC >= 18.5 && resultadoIMC <= 24.9) {
+						lblEstadoIMC.setText("Peso saludable");
+						lblEstadoIMC.setForeground(new Color(34,139,34));
+					}else if (resultadoIMC >= 25.0 && resultadoIMC <= 29.9) {
+						lblEstadoIMC.setText("Sobrepeso");
+						lblEstadoIMC.setForeground(new Color(255,140,0));
+					}else if (resultadoIMC > 30.0) {
+						lblEstadoIMC.setText("Obesidad");
+						lblEstadoIMC.setForeground(new Color(220,20,60));
+					}
+
 				}
 			}
 		});
@@ -179,6 +208,8 @@ public class Persona {
 		txtResultadoIMC.setBounds(62, 206, 46, 20);
 		frame.getContentPane().add(txtResultadoIMC);
 		txtResultadoIMC.setColumns(10);
+		
+		
 		
 		
 	}
