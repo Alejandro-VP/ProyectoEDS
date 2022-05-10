@@ -175,7 +175,7 @@ public class Ventana {
 		frmInutritionist.setBounds(100, 100, 1331, 660);
 		frmInutritionist.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmInutritionist.getContentPane().setLayout(null);
-		
+		frmInutritionist.setLocationRelativeTo(null);
 		
 		/**
 		 * En este bucle se comprueba que las grasas saturadas no sean mayores que las totales y que los azucares no sean mayores que los hidratos de carbono
@@ -849,7 +849,7 @@ public class Ventana {
 				 * Controlamos que las cajas de texto solo tengan numeros manejando la excepcion
 				 */
 				try {
-					if (comboNuevosAlimentos.getSelectedItem() == null){
+					if (comboNuevosAlimentos.getSelectedItem() == null && Double.valueOf(txtCantAlim6.getText()) > 0){
 						JOptionPane.showMessageDialog(frmInutritionist, "No has seleccionado nada en la lista", "Error", JOptionPane.ERROR_MESSAGE);
 					}else {
 						double treintaPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*30.0)/100.0);
