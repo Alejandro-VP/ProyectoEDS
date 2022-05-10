@@ -267,6 +267,16 @@ public class Persona {
 		lblSubirPeso.setBounds(330, 439, 115, 14);
 		frame.getContentPane().add(lblSubirPeso);
 
+		JButton btnRecordatorio = new JButton("?");
+		btnRecordatorio.setVisible(false);
+		btnRecordatorio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(frame, "Estas indicaciones aplican sobre una persona media, si tiene alguna patología o condición, consulte un doctor", "Recordatorio", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnRecordatorio.setBounds(487, 404, 46, 23);
+		frame.getContentPane().add(btnRecordatorio);
+		
 		JButton btnCalcularKCalAdecuadas = new JButton("<html><body align=center>Calcular KCal<br>Adecuadas</body></html>");
 		btnCalcularKCalAdecuadas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -297,6 +307,7 @@ public class Persona {
 					lblBajarPeso.setVisible(true);
 					txtCalSubirPeso.setVisible(true);
 					lblSubirPeso.setVisible(true);
+					btnRecordatorio.setVisible(true);
 					txtCaloriasRecomendadas.setText(String.valueOf(calcularCaloriasAdecuadas()) + " Cal");
 					txtCalBajarPeso.setText(String.valueOf(calcularCaloriasAdelgazar()) + " Cal");
 					txtCalSubirPeso.setText(String.valueOf(calcularCaloriasEngordar()) + " Cal");
@@ -305,6 +316,8 @@ public class Persona {
 		});
 		btnCalcularKCalAdecuadas.setBounds(10, 306, 110, 51);
 		frame.getContentPane().add(btnCalcularKCalAdecuadas);
+		
+		
 	
 	}
 	
@@ -338,6 +351,5 @@ public class Persona {
 		double caloriasEngordarRedondeado = Math.round(caloriasEngordar*100.00)/100.00;
 		return caloriasEngordarRedondeado;
 	}
-	
 }
 
