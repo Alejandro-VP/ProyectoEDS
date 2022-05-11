@@ -168,6 +168,7 @@ public class Ventana {
 		alimentosAL.add(patatasBolsa);
 		
 		frmInutritionist = new JFrame();
+		frmInutritionist.setResizable(false);
 		frmInutritionist.getContentPane().setForeground(new Color(255, 255, 255));
 		frmInutritionist.setTitle("iNutritionist");
 		frmInutritionist.getContentPane().setEnabled(false);
@@ -197,9 +198,6 @@ public class Ventana {
 		JLabel lblCantidad = new JLabel("Cantidad");
 		lblCantidad.setBounds(251, 66, 57, 17);
 		frmInutritionist.getContentPane().add(lblCantidad);
-		
-		
-		
 		
 		/**
 		 * Se crean las cajas de texto de las cantidades y rellenamos el ArrayList
@@ -1022,6 +1020,10 @@ public class Ventana {
 		});
 		btnEstadisticas.setBounds(158, 433, 131, 53);
 		frmInutritionist.getContentPane().add(btnEstadisticas);
+		
+		JLabel lblInfo = new JLabel("Introduce las cantidades de alimentos que consumes");
+		lblInfo.setBounds(24, 27, 325, 17);
+		frmInutritionist.getContentPane().add(lblInfo);
 		
 	}
 	

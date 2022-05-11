@@ -79,9 +79,12 @@ public class Persona {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(216, 191, 216));
 		frame.setBounds(100, 100, 588, 615);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
+
 		
 		JLabel lblSexo = new JLabel("Sexo:");
 		lblSexo.setBounds(12, 104, 46, 14);
@@ -332,7 +335,7 @@ public class Persona {
 		JLabel lblTitulo = new JLabel("Estadísticas personales");
 		lblTitulo.setForeground(new Color(0, 0, 255));
 		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 20));
-		lblTitulo.setBounds(166, 29, 248, 17);
+		lblTitulo.setBounds(166, 29, 248, 34);
 		frame.getContentPane().add(lblTitulo);
 		
 		

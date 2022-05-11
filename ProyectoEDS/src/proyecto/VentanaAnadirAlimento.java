@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JPanel;
 
 public class VentanaAnadirAlimento {
 
@@ -57,81 +58,20 @@ public class VentanaAnadirAlimento {
 	private void initialize() {
 		frmAnadirAlimento = new JFrame();
 		frmAnadirAlimento.setTitle("A\u00F1adir alimento");
-		frmAnadirAlimento.setBounds(100, 100, 693, 437);
+		frmAnadirAlimento.setBounds(100, 100, 377, 443);
 		frmAnadirAlimento.getContentPane().setLayout(null);
 		frmAnadirAlimento.getContentPane().setBackground(new Color(216, 191, 216));
+		frmAnadirAlimento.setLocationRelativeTo(null);
+
 
 		JLabel lblNombreAlimento = new JLabel("Nombre:");
-		lblNombreAlimento.setBounds(63, 77, 76, 14);
+		lblNombreAlimento.setBounds(88, 69, 76, 14);
 		frmAnadirAlimento.getContentPane().add(lblNombreAlimento);
 
 		txtRecogerNombre = new JTextField();
-		txtRecogerNombre.setBounds(140, 77, 113, 20);
+		txtRecogerNombre.setBounds(162, 66, 116, 20);
 		frmAnadirAlimento.getContentPane().add(txtRecogerNombre);
 		txtRecogerNombre.setColumns(10);
-
-		txtRecogerGrasas = new JTextField();
-		txtRecogerGrasas.setBounds(507, 77, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerGrasas);
-		txtRecogerGrasas.setColumns(10);
-
-		txtRecogerGSat = new JTextField();
-		txtRecogerGSat.setBounds(140, 127, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerGSat);
-		txtRecogerGSat.setColumns(10);
-
-		txtRecogerHCarb = new JTextField();
-		txtRecogerHCarb.setBounds(507, 127, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerHCarb);
-		txtRecogerHCarb.setColumns(10);
-
-		txtRecogerAzucar = new JTextField();
-		txtRecogerAzucar.setBounds(140, 179, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerAzucar);
-		txtRecogerAzucar.setColumns(10);
-
-		txtRecogerProteinas = new JTextField();
-		txtRecogerProteinas.setBounds(507, 179, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerProteinas);
-		txtRecogerProteinas.setColumns(10);
-
-		txtRecogerSal = new JTextField();
-		txtRecogerSal.setBounds(140, 238, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerSal);
-		txtRecogerSal.setColumns(10);
-
-		txtRecogerKCal = new JTextField();
-		txtRecogerKCal.setBounds(507, 238, 113, 20);
-		frmAnadirAlimento.getContentPane().add(txtRecogerKCal);
-		txtRecogerKCal.setColumns(10);
-
-		JLabel lblGrasas = new JLabel("Grasas:");
-		lblGrasas.setBounds(430, 80, 76, 14);
-		frmAnadirAlimento.getContentPane().add(lblGrasas);
-
-		JLabel lblGSat = new JLabel("G. Saturadas:");
-		lblGSat.setBounds(42, 130, 97, 14);
-		frmAnadirAlimento.getContentPane().add(lblGSat);
-
-		JLabel lblHidCarb = new JLabel("Hidratos de Carbono:");
-		lblHidCarb.setBounds(379, 130, 127, 14);
-		frmAnadirAlimento.getContentPane().add(lblHidCarb);
-
-		JLabel lblAzucar = new JLabel("Azucar:");
-		lblAzucar.setBounds(70, 179, 73, 14);
-		frmAnadirAlimento.getContentPane().add(lblAzucar);
-
-		JLabel lblProteinas = new JLabel("Prote\u00EDnas:");
-		lblProteinas.setBounds(427, 182, 83, 14);
-		frmAnadirAlimento.getContentPane().add(lblProteinas);
-
-		JLabel lblSal = new JLabel("Sal:");
-		lblSal.setBounds(85, 241, 58, 14);
-		frmAnadirAlimento.getContentPane().add(lblSal);
-
-		JLabel lblKCal = new JLabel("KCalor\u00EDas:");
-		lblKCal.setBounds(421, 241, 89, 14);
-		frmAnadirAlimento.getContentPane().add(lblKCal);
 
 		btnGuardar = new JButton("Guardar");
 		btnGuardar.setBackground(Color.WHITE);
@@ -139,7 +79,7 @@ public class VentanaAnadirAlimento {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					/**
-					 * CREAMOS LO QUE SERÁ EL NUEVO ALIMENTO AL PULSAR EL BOTÓN
+					 * CREAMOS LO QUE SERï¿½ EL NUEVO ALIMENTO AL PULSAR EL BOTï¿½N
 					 */
 					String nombreAlimento = txtRecogerNombre.getText();
 					double grasasEnNum = Double.valueOf(txtRecogerGrasas.getText());
@@ -151,7 +91,7 @@ public class VentanaAnadirAlimento {
 					double kCalEnNum = Double.valueOf(txtRecogerKCal.getText());
 
 					/**
-					 * Comprobación de que las grasas saturadas no superen las grasas normales y que el azucar no supere los hidratos de carbono 
+					 * Comprobaciï¿½n de que las grasas saturadas no superen las grasas normales y que el azucar no supere los hidratos de carbono 
 					 */
 					if (grasasSatEnNum > grasasEnNum) {
 						JOptionPane.showMessageDialog(frmAnadirAlimento, "Las grasas saturadas no pueden ser mayores que las grasas", "Error", JOptionPane.ERROR_MESSAGE);
@@ -161,23 +101,24 @@ public class VentanaAnadirAlimento {
 						nuevoAlimento = new Alimento(nombreAlimento, grasasEnNum, grasasSatEnNum, hCarbEnNum, azucarEnNum,proteinasEnNum,salEnNum,kCalEnNum);
 						Ventana.comboNuevosAlimentos.addItem(nuevoAlimento);
 						Ventana.comboNuevosAlimentos.setEnabled(true);
+						frmAnadirAlimento.setVisible(false);
 					}
 				}
 
 				catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(frmAnadirAlimento, "No pueden quedar campos vacíos y no se pueden introducir letras", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(frmAnadirAlimento, "No pueden quedar campos vacï¿½os y no se pueden introducir letras", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
-		btnGuardar.setBounds(299, 328, 89, 23);
+		btnGuardar.setBounds(140, 355, 89, 23);
 		frmAnadirAlimento.getContentPane().add(btnGuardar);
 
 		lblTitulo = new JLabel("A\u00F1adir alimento");
-		lblTitulo.setForeground(new Color(123, 104, 238));
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTitulo.setBounds(268, 21, 145, 23);
+		lblTitulo.setForeground(Color.BLACK);
+		lblTitulo.setFont(new Font("Bitstream Vera Serif", Font.PLAIN, 20));
+		lblTitulo.setBounds(104, 12, 161, 23);
 		frmAnadirAlimento.getContentPane().add(lblTitulo);
-		
+
 		btnAyuda = new JButton("?");
 		btnAyuda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -186,35 +127,109 @@ public class VentanaAnadirAlimento {
 		});
 		btnAyuda.setForeground(Color.BLACK);
 		btnAyuda.setBackground(Color.WHITE);
-		btnAyuda.setBounds(625, 369, 46, 22);
+		btnAyuda.setBounds(311, 376, 46, 22);
 		frmAnadirAlimento.getContentPane().add(btnAyuda);
-		
+
+		JPanel panelValores = new JPanel();
+		panelValores.setBackground(new Color(244, 238, 244));
+		panelValores.setBounds(12, 112, 345, 231);
+		frmAnadirAlimento.getContentPane().add(panelValores);
+		panelValores.setLayout(null);
+
+		txtRecogerGrasas = new JTextField();
+		txtRecogerGrasas.setBounds(106, 12, 142, 20);
+		panelValores.add(txtRecogerGrasas);
+		txtRecogerGrasas.setColumns(10);
+
+		txtRecogerGSat = new JTextField();
+		txtRecogerGSat.setBounds(170, 44, 78, 20);
+		panelValores.add(txtRecogerGSat);
+		txtRecogerGSat.setColumns(10);
+
+		txtRecogerHCarb = new JTextField();
+		txtRecogerHCarb.setBounds(191, 76, 57, 20);
+		panelValores.add(txtRecogerHCarb);
+		txtRecogerHCarb.setColumns(10);
+
+		txtRecogerAzucar = new JTextField();
+		txtRecogerAzucar.setBounds(142, 105, 106, 20);
+		panelValores.add(txtRecogerAzucar);
+		txtRecogerAzucar.setColumns(10);
+
+		txtRecogerProteinas = new JTextField();
+		txtRecogerProteinas.setBounds(125, 137, 123, 20);
+		panelValores.add(txtRecogerProteinas);
+		txtRecogerProteinas.setColumns(10);
+
+		txtRecogerSal = new JTextField();
+		txtRecogerSal.setBounds(90, 166, 158, 20);
+		panelValores.add(txtRecogerSal);
+		txtRecogerSal.setColumns(10);
+
+		txtRecogerKCal = new JTextField();
+		txtRecogerKCal.setBounds(125, 198, 123, 20);
+		panelValores.add(txtRecogerKCal);
+		txtRecogerKCal.setColumns(10);
+
+		JLabel lblGrasas = new JLabel("Grasas:");
+		lblGrasas.setBounds(59, 15, 44, 14);
+		panelValores.add(lblGrasas);
+
+		JLabel lblGSat = new JLabel("G. Saturadas:");
+		lblGSat.setBounds(90, 47, 83, 14);
+		panelValores.add(lblGSat);
+
+		JLabel lblHidCarb = new JLabel("Hidratos de Carbono:");
+		lblHidCarb.setBounds(59, 79, 127, 14);
+		panelValores.add(lblHidCarb);
+
+		JLabel lblAzucar = new JLabel("Azucar:");
+		lblAzucar.setBounds(90, 108, 46, 14);
+		panelValores.add(lblAzucar);
+
+		JLabel lblProteinas = new JLabel("Prote\u00EDnas:");
+		lblProteinas.setBounds(59, 140, 66, 14);
+		panelValores.add(lblProteinas);
+
+		JLabel lblSal = new JLabel("Sal:");
+		lblSal.setBounds(59, 169, 28, 14);
+		panelValores.add(lblSal);
+
+		JLabel lblKCal = new JLabel("KCalor\u00EDas:");
+		lblKCal.setBounds(59, 201, 66, 14);
+		panelValores.add(lblKCal);
+
 		JLabel lblGramosGrasasS = new JLabel("g");
-		lblGramosGrasasS.setBounds(263, 130, 14, 14);
-		frmAnadirAlimento.getContentPane().add(lblGramosGrasasS);
-		
+		lblGramosGrasasS.setBounds(252, 44, 14, 20);
+		panelValores.add(lblGramosGrasasS);
+
 		JLabel lblGramosAzucar = new JLabel("g");
-		lblGramosAzucar.setBounds(263, 182, 14, 14);
-		frmAnadirAlimento.getContentPane().add(lblGramosAzucar);
-		
+		lblGramosAzucar.setBounds(252, 107, 14, 17);
+		panelValores.add(lblGramosAzucar);
+
 		JLabel lblGramosSal = new JLabel("g");
-		lblGramosSal.setBounds(263, 241, 14, 14);
-		frmAnadirAlimento.getContentPane().add(lblGramosSal);
-		
+		lblGramosSal.setBounds(252, 168, 14, 17);
+		panelValores.add(lblGramosSal);
+
 		JLabel lblGramosGrasas = new JLabel("g");
-		lblGramosGrasas.setBounds(630, 83, 14, 14);
-		frmAnadirAlimento.getContentPane().add(lblGramosGrasas);
-		
+		lblGramosGrasas.setBounds(252, 12, 14, 20);
+		panelValores.add(lblGramosGrasas);
+
 		JLabel lblGramosHidCarb = new JLabel("g");
-		lblGramosHidCarb.setBounds(630, 130, 14, 14);
-		frmAnadirAlimento.getContentPane().add(lblGramosHidCarb);
-		
+		lblGramosHidCarb.setBounds(252, 78, 14, 17);
+		panelValores.add(lblGramosHidCarb);
+
 		JLabel lblGramosProteinas = new JLabel("g");
-		lblGramosProteinas.setBounds(630, 182, 14, 14);
-		frmAnadirAlimento.getContentPane().add(lblGramosProteinas);
-		
+		lblGramosProteinas.setBounds(252, 139, 14, 17);
+		panelValores.add(lblGramosProteinas);
+
 		JLabel lblKcalKCalorias = new JLabel("kcal");
-		lblKcalKCalorias.setBounds(630, 241, 37, 14);
-		frmAnadirAlimento.getContentPane().add(lblKcalKCalorias);
+		lblKcalKCalorias.setBounds(252, 201, 37, 14);
+		panelValores.add(lblKcalKCalorias);
+
+		JPanel panelNombre = new JPanel();
+		panelNombre.setBackground(new Color(244, 238, 244));
+		panelNombre.setBounds(12, 55, 345, 39);
+		frmAnadirAlimento.getContentPane().add(panelNombre);
 	}
 }
