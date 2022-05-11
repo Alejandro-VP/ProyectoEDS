@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.Font;
 
 public class Persona {
 
@@ -79,61 +80,61 @@ public class Persona {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(216, 191, 216));
-		frame.setBounds(100, 100, 588, 514);
+		frame.setBounds(100, 100, 588, 615);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblSexo = new JLabel("Sexo:");
-		lblSexo.setBounds(10, 25, 46, 14);
+		lblSexo.setBounds(12, 104, 46, 14);
 		frame.getContentPane().add(lblSexo);
 		
 		rdbtnMujer = new JRadioButton("Mujer");
-		rdbtnMujer.setBounds(62, 21, 58, 23);
+		rdbtnMujer.setBounds(64, 100, 74, 23);
 		rdbtnMujer.setBackground(new Color(216, 191, 216));
 		frame.getContentPane().add(rdbtnMujer);
 		radios.add(rdbtnMujer);
 		
 		rdbtnHombre = new JRadioButton("Hombre");
-		rdbtnHombre.setBounds(122, 21, 71, 23);
+		rdbtnHombre.setBounds(155, 100, 83, 23);
 		rdbtnHombre.setBackground(new Color(216, 191, 216));
 		frame.getContentPane().add(rdbtnHombre);
 		radios.add(rdbtnHombre);
 		
 		JLabel lblPeso = new JLabel("Peso:");
-		lblPeso.setBounds(10, 67, 46, 14);
+		lblPeso.setBounds(12, 146, 46, 14);
 		frame.getContentPane().add(lblPeso);
 		
 		
 		txtPeso = new JTextField();
-		txtPeso.setBounds(62, 64, 46, 20);
+		txtPeso.setBounds(64, 143, 46, 20);
 		frame.getContentPane().add(txtPeso);
 		txtPeso.setColumns(10);
 
 		
 		JLabel lblKGramos = new JLabel(" kg");
-		lblKGramos.setBounds(115, 67, 21, 14);
+		lblKGramos.setBounds(117, 146, 21, 17);
 		frame.getContentPane().add(lblKGramos);
 		
 		JLabel lblAltura = new JLabel("Altura:");
-		lblAltura.setBounds(10, 107, 46, 14);
+		lblAltura.setBounds(12, 186, 46, 14);
 		frame.getContentPane().add(lblAltura);
 		
 		
 		txtAltura = new JTextField();
-		txtAltura.setBounds(62, 104, 46, 20);
+		txtAltura.setBounds(64, 183, 46, 20);
 		frame.getContentPane().add(txtAltura);
 		txtAltura.setColumns(10);
 		
 		JLabel lblMetros = new JLabel("m");
-		lblMetros.setBounds(115, 107, 46, 14);
+		lblMetros.setBounds(117, 186, 46, 14);
 		frame.getContentPane().add(lblMetros);
 		
 		
 		JLabel lblActividad = new JLabel("Actividad f\u00EDsica:");
-		lblActividad.setBounds(10, 192, 104, 14);
+		lblActividad.setBounds(12, 271, 104, 14);
 		frame.getContentPane().add(lblActividad);
 		
 		JLabel lblEjercicioXSemana = new JLabel("");
-		lblEjercicioXSemana.setBounds(218, 192, 227, 14);
+		lblEjercicioXSemana.setBounds(220, 271, 227, 14);
 		frame.getContentPane().add(lblEjercicioXSemana);
 		
 		comboActividad = new JComboBox();
@@ -165,122 +166,128 @@ public class Persona {
 		});
 		comboActividad.setBackground(Color.WHITE);
 		comboActividad.setModel(new DefaultComboBoxModel(new String[] {"Ninguna", "Leve", "Moderada", "Intensa"}));
-		comboActividad.setBounds(115, 188, 93, 22);
+		comboActividad.setBounds(117, 267, 93, 22);
 		frame.getContentPane().add(comboActividad);
 		
 		JLabel lblIMC = new JLabel("IMC:");
-		lblIMC.setBounds(10, 235, 46, 14);
+		lblIMC.setBounds(12, 314, 46, 14);
 		frame.getContentPane().add(lblIMC);
 		
 		JLabel lblEstadoIMC = new JLabel("");
-		lblEstadoIMC.setBounds(122, 235, 126, 14);
+		lblEstadoIMC.setBounds(124, 314, 126, 14);
 		frame.getContentPane().add(lblEstadoIMC);
 		
 		JButton btnCalcularIMC = new JButton("Calcular IMC");
 		btnCalcularIMC.setBackground(Color.WHITE);
 		btnCalcularIMC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if (txtPeso.getText().equals("") || txtAltura.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(frame, "El peso y la altura no pueden estar vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-				}
-				else
-				{
-					peso=Double.valueOf(txtPeso.getText());
-					altura=Double.valueOf(txtAltura.getText());
-					double resultadoIMC=Math.round((peso/Math.pow(altura, 2))*100.00)/100.00;
-					txtResultadoIMC.setText(Double.toString(resultadoIMC));
-					if (resultadoIMC < 18.5) {
-						lblEstadoIMC.setText("Peso insuficiente");
-						lblEstadoIMC.setForeground(new Color(220,20,60));
-					}else if (resultadoIMC >= 18.5 && resultadoIMC <= 24.9) {
-						lblEstadoIMC.setText("Peso saludable");
-						lblEstadoIMC.setForeground(new Color(34,139,34));
-					}else if (resultadoIMC >= 25.0 && resultadoIMC <= 29.9) {
-						lblEstadoIMC.setText("Sobrepeso");
-						lblEstadoIMC.setForeground(new Color(255,140,0));
-					}else if (resultadoIMC > 30.0) {
-						lblEstadoIMC.setText("Obesidad");
-						lblEstadoIMC.setForeground(new Color(220,20,60));
-					}
 
+				try { 
+					if (txtPeso.getText().equals("") || txtAltura.getText().equals(""))
+					{
+						JOptionPane.showMessageDialog(frame, "El peso y la altura no pueden estar vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+					}
+					else
+					{
+						peso=Double.valueOf(txtPeso.getText());
+						altura=Double.valueOf(txtAltura.getText());
+						double resultadoIMC=Math.round((peso/Math.pow(altura, 2))*100.00)/100.00;
+						txtResultadoIMC.setText(Double.toString(resultadoIMC));
+						if (resultadoIMC < 18.5) {
+							lblEstadoIMC.setText("Peso insuficiente");
+							lblEstadoIMC.setForeground(new Color(220,20,60));
+						}else if (resultadoIMC >= 18.5 && resultadoIMC <= 24.9) {
+							lblEstadoIMC.setText("Peso saludable");
+							lblEstadoIMC.setForeground(new Color(34,139,34));
+						}else if (resultadoIMC >= 25.0 && resultadoIMC <= 29.9) {
+							lblEstadoIMC.setText("Sobrepeso");
+							lblEstadoIMC.setForeground(new Color(255,140,0));
+						}else if (resultadoIMC > 30.0) {
+							lblEstadoIMC.setText("Obesidad");
+							lblEstadoIMC.setForeground(new Color(220,20,60));
+						}
+					}
+				}
+
+				catch (NumberFormatException e1) {
+					JOptionPane.showMessageDialog(frame, "Los campos deben contener numeros y los decimales se escriben con punto", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
-		btnCalcularIMC.setBounds(10, 272, 110, 23);
+		btnCalcularIMC.setBounds(12, 351, 110, 23);
 		frame.getContentPane().add(btnCalcularIMC);
 		
 		txtResultadoIMC = new JTextField();
 		txtResultadoIMC.setEditable(false);
-		txtResultadoIMC.setBounds(62, 232, 46, 20);
+		txtResultadoIMC.setBounds(64, 311, 46, 20);
 		frame.getContentPane().add(txtResultadoIMC);
 		txtResultadoIMC.setColumns(10);
 		
 		txtCalBajarPeso = new JTextField();
 		txtCalBajarPeso.setVisible(false);
 		txtCalBajarPeso.setEditable(false);
-		txtCalBajarPeso.setBounds(227, 405, 93, 20);
+		txtCalBajarPeso.setBounds(229, 484, 93, 20);
 		frame.getContentPane().add(txtCalBajarPeso);
 		txtCalBajarPeso.setColumns(10);
 	
 		JLabel lblKCalAdecuadas = new JLabel("Seg\u00FAn sus datos, deber\u00EDa consumir:");
 		lblKCalAdecuadas.setVisible(false);
-		lblKCalAdecuadas.setBounds(10, 376, 214, 17);
+		lblKCalAdecuadas.setBounds(12, 455, 214, 17);
 		frame.getContentPane().add(lblKCalAdecuadas);
 		
 		JLabel lblEdad = new JLabel("Edad:");
-		lblEdad.setBounds(10, 148, 46, 14);
+		lblEdad.setBounds(12, 227, 46, 14);
 		frame.getContentPane().add(lblEdad);
 		
 		txtEdad = new JTextField();
-		txtEdad.setBounds(62, 145, 46, 20);
+		txtEdad.setBounds(64, 224, 46, 20);
 		frame.getContentPane().add(txtEdad);
 		txtEdad.setColumns(10);
 		
 		JLabel lblMantenerPeso = new JLabel("para mantener su peso.");
 		lblMantenerPeso.setVisible(false);
-		lblMantenerPeso.setBounds(330, 377, 141, 14);
+		lblMantenerPeso.setBounds(332, 456, 141, 14);
 		frame.getContentPane().add(lblMantenerPeso);
 		
 		txtCaloriasRecomendadas = new JTextField();
 		txtCaloriasRecomendadas.setVisible(false);
 		txtCaloriasRecomendadas.setEditable(false);
-		txtCaloriasRecomendadas.setBounds(227, 374, 93, 20);
+		txtCaloriasRecomendadas.setBounds(229, 453, 93, 20);
 		frame.getContentPane().add(txtCaloriasRecomendadas);
 		txtCaloriasRecomendadas.setColumns(10);
 		
 		JLabel lblBajarPeso = new JLabel("para bajar su peso.");
 		lblBajarPeso.setVisible(false);
-		lblBajarPeso.setBounds(330, 408, 115, 14);
+		lblBajarPeso.setBounds(332, 487, 115, 14);
 		frame.getContentPane().add(lblBajarPeso);
 		
 		txtCalSubirPeso = new JTextField();
 		txtCalSubirPeso.setVisible(false);
 		txtCalSubirPeso.setEditable(false);
-		txtCalSubirPeso.setBounds(227, 436, 93, 20);
+		txtCalSubirPeso.setBounds(229, 515, 93, 20);
 		frame.getContentPane().add(txtCalSubirPeso);
 		txtCalSubirPeso.setColumns(10);
 		
 		JLabel lblSubirPeso = new JLabel("para subir su peso.");
 		lblSubirPeso.setVisible(false);
-		lblSubirPeso.setBounds(330, 439, 115, 14);
+		lblSubirPeso.setBounds(332, 518, 115, 14);
 		frame.getContentPane().add(lblSubirPeso);
 
 		JButton btnRecordatorio = new JButton("?");
 		btnRecordatorio.setVisible(false);
 		btnRecordatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "Estas indicaciones aplican sobre una persona media, si tiene alguna patología o condición, consulte un doctor", "Recordatorio", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frame, "Estas indicaciones aplican sobre una persona media, si tiene alguna patologï¿½a o condiciï¿½n, consulte un doctor", "Recordatorio", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		btnRecordatorio.setBounds(487, 404, 46, 23);
+		btnRecordatorio.setBounds(489, 483, 46, 23);
 		frame.getContentPane().add(btnRecordatorio);
 		
 		JButton btnCalcularKCalAdecuadas = new JButton("<html><body align=center>Calcular KCal<br>Adecuadas</body></html>");
+		btnCalcularKCalAdecuadas.setBackground(Color.WHITE);
 		btnCalcularKCalAdecuadas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+			try {
 				if (txtPeso.getText().equals("") || txtAltura.getText().equals("") || txtEdad.getText().equals("") || (!rdbtnMujer.isSelected() && !rdbtnHombre.isSelected()))
 				{
 					if (txtPeso.getText().equals("")) {
@@ -313,9 +320,20 @@ public class Persona {
 					txtCalSubirPeso.setText(String.valueOf(calcularCaloriasEngordar()) + " Cal");
 				}	
 			}
+			catch (NumberFormatException e1) {
+				JOptionPane.showMessageDialog(frame, "Los campos deben contener numeros y los decimales se escriben con punto", "ERROR", JOptionPane.ERROR_MESSAGE);
+			}
+				
+			}
 		});
-		btnCalcularKCalAdecuadas.setBounds(10, 306, 110, 51);
+		btnCalcularKCalAdecuadas.setBounds(12, 385, 110, 58);
 		frame.getContentPane().add(btnCalcularKCalAdecuadas);
+		
+		JLabel lblTitulo = new JLabel("EstadÃ­sticas personales");
+		lblTitulo.setForeground(new Color(0, 0, 255));
+		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblTitulo.setBounds(166, 29, 248, 17);
+		frame.getContentPane().add(lblTitulo);
 		
 		
 	

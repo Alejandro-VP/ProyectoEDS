@@ -1000,14 +1000,16 @@ public class Ventana {
 					lblCorrectoValores.setText("");
 					txtRojo.setVisible(false);
 					lblIncorrectoValores.setText("");
-				}
-				
-				
+				}	
 			}
 		});
 		btnLeyenda.setBounds(10, 577, 89, 23);
 		frmInutritionist.getContentPane().add(btnLeyenda);
 		
+		
+		/**
+		 * Boton para abrir la ventana de estadisticas sobre el usuario
+		 */
 		JButton btnEstadisticas = new JButton("<html><body align=center>Estadisticas<br>Personales</body></html>");
 		btnEstadisticas.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnEstadisticas.setBackground(new Color(0, 0, 255));
