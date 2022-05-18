@@ -45,12 +45,13 @@ public class Ventana {
 	protected static ArrayList <Alimento> alimentosAL = new ArrayList <> ();
 	
 	
+	private JTextField txtCantAlim0;
 	private JTextField txtCantAlim1;
 	private JTextField txtCantAlim2;
 	private JTextField txtCantAlim3;
 	private JTextField txtCantAlim4;
 	private JTextField txtCantAlim5;
-	private JTextField txtCantAlim6;
+	
 	private JTextField txtGrasas0;
 	private JTextField txtGSat0;
 	private JTextField txtHCarb0;
@@ -58,34 +59,41 @@ public class Ventana {
 	private JTextField txtProt0;
 	private JTextField txtSal0;
 	private JTextField txtKCal0;
+	
 	private JTextField txtGrasas1;
-	private JTextField txtGrasas2;
-	private JTextField txtGrasas3;
-	private JTextField txtGrasas4;
 	private JTextField txtGSat1;
-	private JTextField txtGSat2;
-	private JTextField txtGSat3;
-	private JTextField txtGSat4;
 	private JTextField txtHCarb1;
-	private JTextField txtHCarb2;
-	private JTextField txtHCarb3;
-	private JTextField txtHCarb4;
 	private JTextField txtAzucar1;
-	private JTextField txtAzucar2;
-	private JTextField txtAzucar3;
-	private JTextField txtAzucar4;
 	private JTextField txtProt1;
-	private JTextField txtProt2;
-	private JTextField txtProt3;
-	private JTextField txtProt4;
 	private JTextField txtSal1;
-	private JTextField txtSal2;
-	private JTextField txtSal3;
-	private JTextField txtSal4;
 	private JTextField txtKCal1;
+	
+	private JTextField txtGrasas2;
+	private JTextField txtGSat2;
+	private JTextField txtHCarb2;
+	private JTextField txtAzucar2;
+	private JTextField txtProt2;
+	private JTextField txtSal2;
 	private JTextField txtKCal2;
+	
+	
+	private JTextField txtGrasas3;
+	private JTextField txtGSat3;
+	private JTextField txtHCarb3;
+	private JTextField txtAzucar3;
+	private JTextField txtProt3;
+	private JTextField txtSal3;
 	private JTextField txtKCal3;
+	
+	private JTextField txtGrasas4;
+	private JTextField txtGSat4;
+	private JTextField txtHCarb4;
+	private JTextField txtAzucar4;
+	private JTextField txtProt4;
+	private JTextField txtSal4;
 	private JTextField txtKCal4;
+	
+
 	private JTextField txtGrasas5;
 	private JTextField txtGSat5;
 	private JTextField txtHCarb5;
@@ -93,21 +101,9 @@ public class Ventana {
 	private JTextField txtProt5;
 	private JTextField txtSal5;
 	private JTextField txtKCal5;
-	private JLabel lblgr1;
-	private JLabel lblgr2;
-	private JLabel lblgr3;
-	private JLabel lblgr4;
-	private JLabel lblgr5;
-	private JLabel lblgr6;
-	protected static JComboBox <Alimento> comboNuevosAlimentos;
-	private JButton btnLeyenda;
-	private JTextField txtVerde;
-	private JTextField txtRojo;
-	
-	
-	
 
-		
+	protected static JComboBox <Alimento> comboNuevosAlimentos;
+
 	/**
 	 * Launch the application.
 	 */
@@ -138,6 +134,25 @@ public class Ventana {
 	private void initialize() {
 	
 
+		frmInutritionist = new JFrame();
+		frmInutritionist.setResizable(false);
+		frmInutritionist.getContentPane().setForeground(new Color(255, 255, 255));
+		frmInutritionist.setTitle("iNutritionist");
+		frmInutritionist.getContentPane().setEnabled(false);
+		frmInutritionist.getContentPane().setBackground(new Color(216, 191, 216));
+		frmInutritionist.setBounds(100, 100, 1331, 660);
+		frmInutritionist.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmInutritionist.getContentPane().setLayout(null);
+		frmInutritionist.setLocationRelativeTo(null);
+		
+		JLabel lblTitulo = new JLabel("Valores nutricionales");
+		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setForeground(new Color(123, 104, 238));
+		lblTitulo.setBounds(562, 22, 199, 21);
+		frmInutritionist.getContentPane().add(lblTitulo);
+		
+		
 		/**
 		 * Inizializamos cada fila del ArrayList de los resultados
 		 */
@@ -159,7 +174,6 @@ public class Ventana {
 		Alimento patatasBolsa = new Alimento("Patatas fritas bolsa", 36, 3, 50, 4, 7, 1, 555);
 		
 		
-		
 		// Llenamos el ArrayList con los Alimentos
 		alimentosAL.add(tomateFrito);
 		alimentosAL.add(chocolate);
@@ -167,16 +181,6 @@ public class Ventana {
 		alimentosAL.add(pan);
 		alimentosAL.add(patatasBolsa);
 		
-		frmInutritionist = new JFrame();
-		frmInutritionist.setResizable(false);
-		frmInutritionist.getContentPane().setForeground(new Color(255, 255, 255));
-		frmInutritionist.setTitle("iNutritionist");
-		frmInutritionist.getContentPane().setEnabled(false);
-		frmInutritionist.getContentPane().setBackground(new Color(216, 191, 216));
-		frmInutritionist.setBounds(100, 100, 1331, 660);
-		frmInutritionist.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmInutritionist.getContentPane().setLayout(null);
-		frmInutritionist.setLocationRelativeTo(null);
 		
 		/**
 		 * En este bucle se comprueba que las grasas saturadas no sean mayores que las totales y que los azucares no sean mayores que los hidratos de carbono
@@ -203,10 +207,18 @@ public class Ventana {
 		 * Se crean las cajas de texto de las cantidades y rellenamos el ArrayList
 		 */
 		
+		txtCantAlim0 = new JTextField();
+		txtCantAlim0.setText("0");
+		txtCantAlim0.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim0.setBounds(241, 105, 67, 21);
+		frmInutritionist.getContentPane().add(txtCantAlim0);
+		txtCantAlim0.setColumns(10);
+		cajasCantidades.add(txtCantAlim0);
+		
 		txtCantAlim1 = new JTextField();
 		txtCantAlim1.setText("0");
 		txtCantAlim1.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCantAlim1.setBounds(241, 105, 67, 21);
+		txtCantAlim1.setBounds(241, 147, 67, 21);
 		frmInutritionist.getContentPane().add(txtCantAlim1);
 		txtCantAlim1.setColumns(10);
 		cajasCantidades.add(txtCantAlim1);
@@ -214,7 +226,7 @@ public class Ventana {
 		txtCantAlim2 = new JTextField();
 		txtCantAlim2.setText("0");
 		txtCantAlim2.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCantAlim2.setBounds(241, 147, 67, 21);
+		txtCantAlim2.setBounds(241, 190, 67, 21);
 		frmInutritionist.getContentPane().add(txtCantAlim2);
 		txtCantAlim2.setColumns(10);
 		cajasCantidades.add(txtCantAlim2);
@@ -222,64 +234,56 @@ public class Ventana {
 		txtCantAlim3 = new JTextField();
 		txtCantAlim3.setText("0");
 		txtCantAlim3.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCantAlim3.setBounds(241, 190, 67, 21);
-		frmInutritionist.getContentPane().add(txtCantAlim3);
 		txtCantAlim3.setColumns(10);
+		txtCantAlim3.setBounds(241, 234, 67, 21);
+		frmInutritionist.getContentPane().add(txtCantAlim3);
 		cajasCantidades.add(txtCantAlim3);
 		
 		txtCantAlim4 = new JTextField();
 		txtCantAlim4.setText("0");
 		txtCantAlim4.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCantAlim4.setColumns(10);
-		txtCantAlim4.setBounds(241, 234, 67, 21);
+		txtCantAlim4.setBounds(241, 280, 67, 21);
 		frmInutritionist.getContentPane().add(txtCantAlim4);
 		cajasCantidades.add(txtCantAlim4);
-		
-		txtCantAlim5 = new JTextField();
-		txtCantAlim5.setText("0");
-		txtCantAlim5.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCantAlim5.setColumns(10);
-		txtCantAlim5.setBounds(241, 280, 67, 21);
-		frmInutritionist.getContentPane().add(txtCantAlim5);
-		cajasCantidades.add(txtCantAlim5);
 
-		txtCantAlim6 = new JTextField();
-		txtCantAlim6.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCantAlim6.setText("0");
-		txtCantAlim6.setBounds(241, 326, 67, 20);
-		frmInutritionist.getContentPane().add(txtCantAlim6);
-		txtCantAlim6.setColumns(10);
-		cajasCantidades.add(txtCantAlim6);
+		txtCantAlim5 = new JTextField();
+		txtCantAlim5.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCantAlim5.setText("0");
+		txtCantAlim5.setBounds(241, 326, 67, 20);
+		frmInutritionist.getContentPane().add(txtCantAlim5);
+		txtCantAlim5.setColumns(10);
+		cajasCantidades.add(txtCantAlim5);
+		
+		JLabel lblAlimento0 = new JLabel("");
+		lblAlimento0.setBounds(100, 107, 131, 17);
+		frmInutritionist.getContentPane().add(lblAlimento0);
+		// Anadimos el primer alimento a la etiqueta de alimento
+		lblAlimento0.setText(alimentosAL.get(0).getNombre());
 		
 		JLabel lblAlimento1 = new JLabel("");
-		lblAlimento1.setBounds(100, 107, 131, 17);
+		lblAlimento1.setBounds(100, 149, 131, 17);
 		frmInutritionist.getContentPane().add(lblAlimento1);
-		// Anadimos el primer alimento a la etiqueta de alimento
-		lblAlimento1.setText(alimentosAL.get(0).getNombre());
-		
-		JLabel lblAlimento2 = new JLabel("");
-		lblAlimento2.setBounds(100, 149, 131, 17);
-		frmInutritionist.getContentPane().add(lblAlimento2);
 		// Anadimos el segundo alimento a la etiqueta
-		lblAlimento2.setText(alimentosAL.get(1).getNombre());
+		lblAlimento1.setText(alimentosAL.get(1).getNombre());
+		
+		JLabel lblAlimento2 = new JLabel((String) null);
+		lblAlimento2.setBounds(100, 192, 131, 17);
+		frmInutritionist.getContentPane().add(lblAlimento2);
+		// Anadimos el tercer alimento a su respectiva etiqueta
+		lblAlimento2.setText(alimentosAL.get(2).getNombre());
 		
 		JLabel lblAlimento3 = new JLabel((String) null);
-		lblAlimento3.setBounds(100, 192, 131, 17);
+		lblAlimento3.setBounds(100, 236, 131, 17);
 		frmInutritionist.getContentPane().add(lblAlimento3);
-		// Anadimos el tercer alimento a su respectiva etiqueta
-		lblAlimento3.setText(alimentosAL.get(2).getNombre());
+		// Anadimos el cuarto alimento a su respectiva etiqueta
+		lblAlimento3.setText(alimentosAL.get(3).getNombre());
 		
 		JLabel lblAlimento4 = new JLabel((String) null);
-		lblAlimento4.setBounds(100, 236, 131, 17);
+		lblAlimento4.setBounds(100, 282, 131, 17);
 		frmInutritionist.getContentPane().add(lblAlimento4);
-		// Anadimos el cuarto alimento a su respectiva etiqueta
-		lblAlimento4.setText(alimentosAL.get(3).getNombre());
-		
-		JLabel lblAlimento5 = new JLabel((String) null);
-		lblAlimento5.setBounds(100, 282, 131, 17);
-		frmInutritionist.getContentPane().add(lblAlimento5);
 		// Anadimos el quinto alimento a su respectiva etiqueta
-		lblAlimento5.setText(alimentosAL.get(4).getNombre());
+		lblAlimento4.setText(alimentosAL.get(4).getNombre());
 		
 		// Etiquetas para indicar a qué corresponde cada columna
 		JLabel lblGrasas = new JLabel("Grasas");
@@ -294,11 +298,11 @@ public class Ventana {
 		lblHidratosCarbono.setBounds(645, 66, 94, 17);
 		frmInutritionist.getContentPane().add(lblHidratosCarbono);
 		
-		JLabel lblAzucar = new JLabel("Azucar");
+		JLabel lblAzucar = new JLabel("Az\u00FAcar");
 		lblAzucar.setBounds(797, 66, 74, 17);
 		frmInutritionist.getContentPane().add(lblAzucar);
 		
-		JLabel lblProteinas = new JLabel("Proteinas");
+		JLabel lblProteinas = new JLabel("Prote\u00EDnas");
 		lblProteinas.setBounds(925, 66, 94, 17);
 		frmInutritionist.getContentPane().add(lblProteinas);
 		
@@ -310,12 +314,6 @@ public class Ventana {
 		lblKiloCalorias.setBounds(1204, 66, 73, 17);
 		frmInutritionist.getContentPane().add(lblKiloCalorias);
 		
-		JLabel lblCantidadesIngeridas = new JLabel("Valores nutricionales");
-		lblCantidadesIngeridas.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblCantidadesIngeridas.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCantidadesIngeridas.setForeground(new Color(123, 104, 238));
-		lblCantidadesIngeridas.setBounds(562, 22, 199, 21);
-		frmInutritionist.getContentPane().add(lblCantidadesIngeridas);
 
 		/**
 		 * Creamos las cajas de texto de los resultados y las anadimos al ArrayList
@@ -810,7 +808,7 @@ public class Ventana {
 		comboNuevosAlimentos.setEnabled(false);
 		comboNuevosAlimentos.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				txtCantAlim6.setText("0");
+				txtCantAlim5.setText("0");
 				for (int i = 0; i < cajasResultados.get(0).size();i++) {
 					cajasResultados.get(5).get(i).setText("");
 					cajasResultados.get(5).get(i).setBackground(new Color(255,255,255));
@@ -847,7 +845,7 @@ public class Ventana {
 				 * Controlamos que las cajas de texto solo tengan numeros manejando la excepcion
 				 */
 				try {
-					if (comboNuevosAlimentos.getSelectedItem() == null && Double.valueOf(txtCantAlim6.getText()) > 0){
+					if (comboNuevosAlimentos.getSelectedItem() == null && Double.valueOf(txtCantAlim5.getText()) > 0){
 						JOptionPane.showMessageDialog(frmInutritionist, "No has seleccionado nada en la lista", "Error", JOptionPane.ERROR_MESSAGE);
 					}else {
 						double treintaPorCienIngCalorica = ((calcularIngestaCalorica(alimentosAL)*30.0)/100.0);
@@ -902,27 +900,27 @@ public class Ventana {
 		btnValidarDieta.setBounds(600, 459, 114, 27);
 		frmInutritionist.getContentPane().add(btnValidarDieta);
 		
-		lblgr1 = new JLabel("g");
+		JLabel lblgr1 = new JLabel("g");
 		lblgr1.setBounds(319, 107, 18, 17);
 		frmInutritionist.getContentPane().add(lblgr1);
 		
-		lblgr2 = new JLabel("g");
+		JLabel lblgr2 = new JLabel("g");
 		lblgr2.setBounds(319, 151, 8, 17);
 		frmInutritionist.getContentPane().add(lblgr2);
 		
-		lblgr3 = new JLabel("g");
+		JLabel lblgr3 = new JLabel("g");
 		lblgr3.setBounds(319, 192, 18, 17);
 		frmInutritionist.getContentPane().add(lblgr3);
 		
-		lblgr4 = new JLabel("g");
+		JLabel lblgr4 = new JLabel("g");
 		lblgr4.setBounds(319, 236, 18, 17);
 		frmInutritionist.getContentPane().add(lblgr4);
 		
-		lblgr5 = new JLabel("g");
+		JLabel lblgr5 = new JLabel("g");
 		lblgr5.setBounds(319, 282, 18, 17);
 		frmInutritionist.getContentPane().add(lblgr5);
 		
-		lblgr6 = new JLabel("g");
+		JLabel lblgr6 = new JLabel("g");
 		lblgr6.setBounds(318, 329, 18, 17);
 		frmInutritionist.getContentPane().add(lblgr6);
 		
@@ -934,7 +932,7 @@ public class Ventana {
 		lblIncorrectoValores.setBounds(190, 581, 325, 14);
 		frmInutritionist.getContentPane().add(lblIncorrectoValores);
 		
-		txtVerde = new JTextField();
+		JTextField txtVerde = new JTextField();
 		txtVerde.setEditable(false);
 		txtVerde.setEnabled(false);
 		txtVerde.setBounds(148, 550, 25, 20);
@@ -942,7 +940,7 @@ public class Ventana {
 		txtVerde.setColumns(10);
 		txtVerde.setVisible(false);
 		
-		txtRojo = new JTextField();
+		JTextField txtRojo = new JTextField();
 		txtRojo.setEditable(false);
 		txtRojo.setEnabled(false);
 		txtRojo.setBounds(148, 576, 25, 20);
@@ -982,7 +980,7 @@ public class Ventana {
 		/***
 		 * Boton para mostrar la leyenda de colores
 		 */
-		btnLeyenda = new JButton("Leyenda");
+		JButton btnLeyenda = new JButton("Leyenda");
 		btnLeyenda.setBackground(new Color(255, 255, 255));
 		btnLeyenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1008,14 +1006,14 @@ public class Ventana {
 		/**
 		 * Boton para abrir la ventana de estadisticas sobre el usuario
 		 */
-		JButton btnEstadisticas = new JButton("<html><body align=center>Estadisticas<br>Personales</body></html>");
+		JButton btnEstadisticas = new JButton("<html><body align=center>Estad\u00EDsticas<br>Personales</body></html>");
 		btnEstadisticas.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnEstadisticas.setBackground(new Color(0, 0, 255));
 		btnEstadisticas.setForeground(new Color(255, 255, 255));
 		btnEstadisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Persona ventanaPersona = new Persona();
-				ventanaPersona.frame.setVisible(true);
+				ventanaPersona.frmEstadisticasPersonales.setVisible(true);
 			}
 		});
 		btnEstadisticas.setBounds(158, 433, 131, 53);
