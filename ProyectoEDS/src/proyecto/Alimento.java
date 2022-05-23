@@ -5,6 +5,12 @@
 
 package proyecto;
 
+/**
+ * 
+ * @author restr, AlexVP, AlexMP
+ *
+ */
+
 public class Alimento {
 	protected String nombre;
 	protected double grasas;
@@ -15,6 +21,18 @@ public class Alimento {
 	protected double sal;
 	protected double kiloCalorias;
 
+	/**
+	 * Crea un alimento recibiendo como parametro valores nutricionales
+	 * 
+	 * @param nombre
+	 * @param grasas
+	 * @param grasasSat
+	 * @param hidratosCarbono
+	 * @param azucar
+	 * @param proteinas
+	 * @param sal
+	 * @param kiloCalorias
+	 */
 	Alimento (String nombre, double grasas, double grasasSat, double hidratosCarbono, double azucar, double proteinas, double sal, double kiloCalorias){
 		this.nombre = nombre;
 		this.grasas = grasas;

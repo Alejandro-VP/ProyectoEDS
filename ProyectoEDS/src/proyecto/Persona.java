@@ -1,5 +1,10 @@
 package proyecto;
-
+/**
+ * 
+ * @author restr, AlexVP, AlexMP
+ * La clase persona nos permite guardar la estatura  y altura de la persona, calcular su IMC 
+ * y las kilocalorias adecuadas para cada persona
+ */
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -38,6 +43,11 @@ public class Persona {
 	private JTextField txtCalSubirPeso;
 	private static JComboBox comboActividad;
 	
+	/**
+	 * Constructor que recibe como parametro el peso y la altura de la persona
+	 * @param peso
+	 * @param altura
+	 */
 	public Persona(double peso, double altura) {
 		this.peso = peso;
 		this.altura = altura;
@@ -370,6 +380,10 @@ public class Persona {
 		
 	}
 	
+	/**
+	 * metodo que calcula las calorias correctas y devuelve el resultado
+	 * @return
+	 */
 	private static double calcularCaloriasAdecuadas() {
 			peso=Double.valueOf(txtPeso.getText());
 			altura=Double.valueOf(txtAltura.getText());
@@ -389,12 +403,20 @@ public class Persona {
 			return caloriasAdecuadas;
 		}
 		
+	/**
+	 * metodo que calcula las calrias necesaria para adelgazar y devuelve el resultado
+	 * @return
+	 */
 	private static double calcularCaloriasAdelgazar() {
 		double caloriasAdelgazar = calcularCaloriasAdecuadas()*0.85;
 		double caloriasAdelgazarRedondeado = Math.round(caloriasAdelgazar*100.00)/100.00;
 		return caloriasAdelgazarRedondeado;
 	}
 	
+	/**
+	 * metodo que calcula las calorias necesarias para engordar y devuelve el resultado
+	 * @return
+	 */
 	private static double calcularCaloriasEngordar() {
 		double caloriasEngordar = calcularCaloriasAdecuadas() + (calcularCaloriasAdecuadas()*0.15);
 		double caloriasEngordarRedondeado = Math.round(caloriasEngordar*100.00)/100.00;

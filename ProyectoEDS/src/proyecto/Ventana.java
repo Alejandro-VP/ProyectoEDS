@@ -1,5 +1,10 @@
 package proyecto;
 
+/**
+ *  @author restr, AlexVP, AlexMP
+ *  calcula los valores nutricionales de cada alimento, permite añadir un alimento que queramos y poner tambien sus
+ *  valores nutricionales y conocer las estadisticas personales
+ */
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -285,7 +290,7 @@ public class Ventana {
 		// Anadimos el quinto alimento a su respectiva etiqueta
 		lblAlimento4.setText(alimentosAL.get(4).getNombre());
 		
-		// Etiquetas para indicar a quÃ© corresponde cada columna
+		// Etiquetas para indicar a que corresponde cada columna
 		JLabel lblGrasas = new JLabel("Grasas");
 		lblGrasas.setBounds(374, 66, 67, 17);
 		frmInutritionist.getContentPane().add(lblGrasas);
@@ -325,7 +330,7 @@ public class Ventana {
 		txtGrasas0.setEditable(false);
 		txtGrasas0.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtGrasas0.setHorizontalAlignment(SwingConstants.CENTER);
-		txtGrasas0.setBounds(365, 105, 60, 21);
+		 txtGrasas0.setBounds(365, 105, 60, 21);
 		frmInutritionist.getContentPane().add(txtGrasas0);
 		txtGrasas0.setColumns(10);
 		//Se anade al ArrayList
@@ -1026,7 +1031,7 @@ public class Ventana {
 	}
 	
 	/***
-	 * Metodo para calcular los valores nutricionales
+	 * Metodo para calcular los valores nutricionales, recibe como parametro un array de Alimento
 	 * @param alimentos
 	 */
 	private void calcularValoresNutricionales (ArrayList<Alimento> alimentos)
@@ -1087,7 +1092,8 @@ public class Ventana {
 	}
 
 	/**
-	 *  Metodo para calcular la ingesta calorica total
+	 *  Metodo para calcular la ingesta calorica total, recibe como parametro un array de Alimento y devuelve 
+	 *  el numero total de kilocalorias
 	 * @param alimentos
 	 * @return
 	 */
@@ -1103,7 +1109,8 @@ public class Ventana {
 	}
 
 	/**
-	 *  Metodo para calcular las grasas totales
+	 *  Metodo para calcular las grasas totales, recibe como parametro un array de Alimento y devuelve 
+	 *  el numero total de grasas
 	 * @param alimentos
 	 * @return
 	 */
@@ -1119,7 +1126,8 @@ public class Ventana {
 	}
 
 	/***
-	 * Metodo para calcular el azucar total
+	 * Metodo para calcular el azucar total, recibe como parametro un array de Alimento y devuelve 
+	 * el numero total de azucar
 	 * @param alimentos
 	 * @return
 	 */
@@ -1135,7 +1143,8 @@ public class Ventana {
 	}
 
 	/***
-	 * Metodo para calcular la sal
+	 * Metodo para calcular la sal, recibe como parametro un array de Alimento y devuelve 
+	 * el numero total de sal
 	 * @param alimentos
 	 * @return
 	 */

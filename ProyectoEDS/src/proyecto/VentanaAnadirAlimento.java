@@ -1,5 +1,10 @@
 package proyecto;
 
+/**
+ *  @author restr, AlexVP, AlexMP
+ *  ventana para añadir un nuevo alimento con los valores nutricionales
+ *  
+ */
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -78,7 +83,6 @@ public class VentanaAnadirAlimento {
 		/**
 		 * Aqui obtenemos el nombre del nuevo alimento
 		 */
-		
 		JLabel lblNombreAlimento = new JLabel("Nombre:");
 		lblNombreAlimento.setBounds(63, 12, 51, 14);
 		panelNombre.add(lblNombreAlimento);
