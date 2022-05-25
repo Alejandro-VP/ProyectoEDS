@@ -315,7 +315,7 @@ public class Ventana {
 		lblSal.setBounds(1087, 66, 18, 17);
 		frmInutritionist.getContentPane().add(lblSal);
 		
-		JLabel lblKiloCalorias = new JLabel("KiloCalorias");
+		JLabel lblKiloCalorias = new JLabel("KiloCalor\u00EDas");
 		lblKiloCalorias.setBounds(1204, 66, 73, 17);
 		frmInutritionist.getContentPane().add(lblKiloCalorias);
 		
@@ -957,12 +957,12 @@ public class Ventana {
 		btnAyuda.setBackground(new Color(255, 255, 255));
 		btnAyuda.setForeground(new Color(0, 0, 0));
 		/**
-		 * Evento para sacar el mensaje al pulsar el boton de ayuda
+		 * Evento para sacar el mensaje al pulsar el bot\u00F3n de ayuda
 		 */
 		btnAyuda.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(frmInutritionist, "Indique cuanta cantidad de los alimentos consume y pulse el boton", "Help", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(frmInutritionist, "Indique cuanta cantidad de los alimentos consume y pulse el bot\u00F3n", "Help", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnAyuda.setBounds(1259, 576, 46, 22);

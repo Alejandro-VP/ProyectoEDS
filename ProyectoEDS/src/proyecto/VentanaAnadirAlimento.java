@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class VentanaAnadirAlimento {
 
@@ -84,7 +85,7 @@ public class VentanaAnadirAlimento {
 		 * Aqui obtenemos el nombre del nuevo alimento
 		 */
 		JLabel lblNombreAlimento = new JLabel("Nombre:");
-		lblNombreAlimento.setBounds(63, 12, 51, 14);
+		lblNombreAlimento.setBounds(47, 12, 67, 14);
 		panelNombre.add(lblNombreAlimento);
 		panelNombre.setLayout(null);
 		
@@ -110,6 +111,7 @@ public class VentanaAnadirAlimento {
 		panelValores.add(lblGrasas);
 		
 		txtRecogerGrasas = new JTextField();
+		txtRecogerGrasas.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerGrasas.setBounds(106, 12, 142, 20);
 		panelValores.add(txtRecogerGrasas);
 		txtRecogerGrasas.setColumns(10);
@@ -127,6 +129,7 @@ public class VentanaAnadirAlimento {
 		panelValores.add(lblGSat);
 		
 		txtRecogerGSat = new JTextField();
+		txtRecogerGSat.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerGSat.setBounds(170, 44, 78, 20);
 		panelValores.add(txtRecogerGSat);
 		txtRecogerGSat.setColumns(10);
@@ -144,6 +147,7 @@ public class VentanaAnadirAlimento {
 		panelValores.add(lblHidCarb);
 		
 		txtRecogerHCarb = new JTextField();
+		txtRecogerHCarb.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerHCarb.setBounds(191, 76, 57, 20);
 		panelValores.add(txtRecogerHCarb);
 		txtRecogerHCarb.setColumns(10);
@@ -155,11 +159,12 @@ public class VentanaAnadirAlimento {
 		/**
 		 * Aqui obtenemos el azucar del nuevo alimento
 		 */
-		JLabel lblAzucar = new JLabel("Azucar:");
+		JLabel lblAzucar = new JLabel("Az\u00FAcar:");
 		lblAzucar.setBounds(90, 108, 46, 14);
 		panelValores.add(lblAzucar);
 		
 		txtRecogerAzucar = new JTextField();
+		txtRecogerAzucar.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerAzucar.setBounds(142, 105, 106, 20);
 		panelValores.add(txtRecogerAzucar);
 		txtRecogerAzucar.setColumns(10);
@@ -176,6 +181,7 @@ public class VentanaAnadirAlimento {
 		panelValores.add(lblProteinas);
 		
 		txtRecogerProteinas = new JTextField();
+		txtRecogerProteinas.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerProteinas.setBounds(125, 137, 123, 20);
 		panelValores.add(txtRecogerProteinas);
 		txtRecogerProteinas.setColumns(10);
@@ -192,6 +198,7 @@ public class VentanaAnadirAlimento {
 		panelValores.add(lblSal);
 		
 		txtRecogerSal = new JTextField();
+		txtRecogerSal.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerSal.setBounds(90, 166, 158, 20);
 		panelValores.add(txtRecogerSal);
 		txtRecogerSal.setColumns(10);
@@ -204,6 +211,7 @@ public class VentanaAnadirAlimento {
 		 * Aqui obtenemos la sal del nuevo alimento
 		 */
 		txtRecogerKCal = new JTextField();
+		txtRecogerKCal.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtRecogerKCal.setBounds(125, 198, 123, 20);
 		panelValores.add(txtRecogerKCal);
 		txtRecogerKCal.setColumns(10);

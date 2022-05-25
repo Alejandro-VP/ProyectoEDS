@@ -23,6 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.Font;
+import javax.swing.JPanel;
 
 public class Persona {
 
@@ -89,7 +90,7 @@ public class Persona {
 	 */
 	private void initialize() {
 		frmEstadisticasPersonales = new JFrame();
-		frmEstadisticasPersonales.setTitle("Estadisticas Personales");
+		frmEstadisticasPersonales.setTitle("Estad\u00EDsticas Personales");
 		frmEstadisticasPersonales.setResizable(false);
 		frmEstadisticasPersonales.getContentPane().setBackground(new Color(216, 191, 216));
 		frmEstadisticasPersonales.setBounds(100, 100, 588, 615);
@@ -376,7 +377,6 @@ public class Persona {
 		});
 		btnCalcularKCalAdecuadas.setBounds(12, 385, 110, 58);
 		frmEstadisticasPersonales.getContentPane().add(btnCalcularKCalAdecuadas);
-		
 		
 	}
 	
